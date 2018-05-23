@@ -1,6 +1,5 @@
 package com.mindbodyonline.fitbitintegration.service.models;
 
-import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;
@@ -9,109 +8,74 @@ import java.util.List;
 public class User {
 
     @SerializedName("age")
-    @Expose
     private Integer age;
     @SerializedName("autoStrideEnabled")
-    @Expose
     private Boolean autoStrideEnabled;
     @SerializedName("avatar")
-    @Expose
     private String avatar;
     @SerializedName("avatar150")
-    @Expose
     private String avatar150;
     @SerializedName("averageDailySteps")
-    @Expose
     private Integer averageDailySteps;
     @SerializedName("clockTimeDisplayFormat")
-    @Expose
     private String clockTimeDisplayFormat;
     @SerializedName("corporate")
-    @Expose
     private Boolean corporate;
     @SerializedName("corporateAdmin")
-    @Expose
     private Boolean corporateAdmin;
     @SerializedName("country")
-    @Expose
     private String country;
     @SerializedName("dateOfBirth")
-    @Expose
     private String dateOfBirth;
     @SerializedName("displayName")
-    @Expose
     private String displayName;
     @SerializedName("distanceUnit")
-    @Expose
     private String distanceUnit;
     @SerializedName("encodedId")
-    @Expose
     private String encodedId;
     @SerializedName("features")
-    @Expose
     private Features features;
     @SerializedName("foodsLocale")
-    @Expose
     private String foodsLocale;
     @SerializedName("fullName")
-    @Expose
     private String fullName;
     @SerializedName("gender")
-    @Expose
     private String gender;
     @SerializedName("glucoseUnit")
-    @Expose
     private String glucoseUnit;
     @SerializedName("height")
-    @Expose
     private Double height;
     @SerializedName("heightUnit")
-    @Expose
     private String heightUnit;
     @SerializedName("locale")
-    @Expose
     private String locale;
     @SerializedName("memberSince")
-    @Expose
     private String memberSince;
     @SerializedName("offsetFromUTCMillis")
-    @Expose
     private Integer offsetFromUTCMillis;
     @SerializedName("startDayOfWeek")
-    @Expose
     private String startDayOfWeek;
     @SerializedName("state")
-    @Expose
     private String state;
     @SerializedName("strideLengthRunning")
-    @Expose
     private Double strideLengthRunning;
     @SerializedName("strideLengthRunningType")
-    @Expose
     private String strideLengthRunningType;
     @SerializedName("strideLengthWalking")
-    @Expose
     private Double strideLengthWalking;
     @SerializedName("strideLengthWalkingType")
-    @Expose
     private String strideLengthWalkingType;
     @SerializedName("timezone")
-    @Expose
     private String timezone;
     @SerializedName("topBadges")
-    @Expose
-    private List<TopBadge> topBadges = new ArrayList<TopBadge>();
+    private List<TopBadge> topBadges = new ArrayList<>();
     @SerializedName("waterUnit")
-    @Expose
     private String waterUnit;
     @SerializedName("waterUnitName")
-    @Expose
     private String waterUnitName;
     @SerializedName("weight")
-    @Expose
     private Double weight;
     @SerializedName("weightUnit")
-    @Expose
     private String weightUnit;
 
     /**

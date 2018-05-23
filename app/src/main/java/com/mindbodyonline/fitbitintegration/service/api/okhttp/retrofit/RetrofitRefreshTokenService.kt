@@ -72,6 +72,6 @@ class RetrofitRefreshTokenService(private val env: Environment, private val endp
     override fun getTokenServiceUrl(): String = path().toString()
 
     private fun path(): HttpUrl =
-            HttpUrl.parse(endpoint.auth(env))?.newBuilder()?.addPathSegments("issue/oauth2/token")?.build() ?: throw IllegalArgumentException("Unable to parse auth endpoint: ${endpoint.auth(env)}")
+            HttpUrl.parse(endpoint.auth(env))?.newBuilder()?.addPathSegments("oauth2/token")?.build() ?: throw IllegalArgumentException("Unable to parse auth endpoint: ${endpoint.auth(env)}")
 
 }

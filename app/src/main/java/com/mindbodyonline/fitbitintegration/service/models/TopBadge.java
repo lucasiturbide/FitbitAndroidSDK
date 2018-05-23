@@ -22,7 +22,7 @@ public class TopBadge {
     private String category;
     @SerializedName("cheers")
     @Expose
-    private List<Object> cheers = new ArrayList<Object>();
+    private List<Object> cheers = new ArrayList<>();
     @SerializedName("dateTime")
     @Expose
     private String dateTime;

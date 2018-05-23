@@ -21,7 +21,7 @@ class SharedPreferenceTokenStorage @JvmOverloads constructor(private val prefere
             if (value == null) {
                 preferences.edit().remove(key).apply()
             } else {
-                preferences.edit().putString(key, SafeGson.toJson(token)).apply()
+                preferences.edit().putString(key, SafeGson.toJson(value)).apply()
             }
         }
 

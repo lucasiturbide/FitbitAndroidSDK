@@ -1,5 +1,6 @@
 package com.mindbodyonline.fitbitintegration.service.api
 
+import com.mindbodyonline.fitbitintegration.service.models.UserContainer
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.POST
@@ -10,7 +11,7 @@ interface UserService {
      * Retrieves the user&#39;s badges in the format requested. Response includes all badges for the user as seen on the Fitbit website badge locker (both activity and weight related.) The endpoint returns weight and distance badges based on the user&#39;s unit profile preference as on the website.
      * @return Call&lt;Void&gt;
      */
-    @GET("1/user/-/badges.json")
+    @GET("user/-/badges.json")
     fun badges(): Call<Void>
 
 
@@ -19,8 +20,8 @@ interface UserService {
      * Returns a user&#39;s profile. The authenticated owner receives all values. However, the authenticated user&#39;s access to other users&#39; data is subject to those users&#39; privacy settings. Numerical values are returned in the unit system specified in the Accept-Language header.
      * @return Call&lt;Void&gt;
      */
-    @GET("1/user/-/profile.json")
-    fun profile(): Call<Void>
+    @GET("user/-/profile.json")
+    fun profile(): Call<UserContainer>
 
 
     /**
@@ -49,9 +50,9 @@ interface UserService {
      * @return Call&lt;Void&gt;
      */
     @retrofit2.http.Multipart
-    @POST("1/user/-/profile.json")
-    fun profile_0(
+    @POST("user/-/profile.json")
+    fun updateProfile(
             @retrofit2.http.Part("gender") gender: String, @retrofit2.http.Part("birthday") birthday: String, @retrofit2.http.Part("height") height: String, @retrofit2.http.Part("aboutMe") aboutMe: String, @retrofit2.http.Part("fullname") fullname: String, @retrofit2.http.Part("country") country: String, @retrofit2.http.Part("state") state: String, @retrofit2.http.Part("city") city: String, @retrofit2.http.Part("strideLengthWalking") strideLengthWalking: String, @retrofit2.http.Part("strideLengthRunning") strideLengthRunning: String, @retrofit2.http.Part("weightUnit") weightUnit: String, @retrofit2.http.Part("heightUnit") heightUnit: String, @retrofit2.http.Part("waterUnit") waterUnit: String, @retrofit2.http.Part("glucoseUnit") glucoseUnit: String, @retrofit2.http.Part("timezone") timezone: String, @retrofit2.http.Part("foodsLocale") foodsLocale: String, @retrofit2.http.Part("locale") locale: String, @retrofit2.http.Part("localeLang") localeLang: String, @retrofit2.http.Part("localeCountry") localeCountry: String, @retrofit2.http.Part("startDayOfWeek") startDayOfWeek: String
-    ): Call<Void>
+    ): Call<UserContainer>
 
 }

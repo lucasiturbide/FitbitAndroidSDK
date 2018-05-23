@@ -3,6 +3,7 @@ package com.mindbodyonline.fitbitintegration.service
 import android.content.SharedPreferences
 import android.util.Log
 import com.mindbodyonline.fitbitintegration.FitbitAuthEndpoint
+import com.mindbodyonline.fitbitintegration.gsonhelper.SafeGson
 import com.mindbodyonline.fitbitintegration.service.api.*
 import com.mindbodyonline.fitbitintegration.service.api.endpoint.AuthEndpoint
 import com.mindbodyonline.fitbitintegration.service.api.endpoint.Endpoint
@@ -14,6 +15,7 @@ import com.mindbodyonline.fitbitintegration.service.storage.SharedPreferenceToke
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 
 class FitbitService(sharedPreferences: SharedPreferences){
 
@@ -53,12 +55,13 @@ class FitbitService(sharedPreferences: SharedPreferences){
                 .authenticator(Authenticator(
                         oAuthDataService
                 ))
-                .addNetworkInterceptor(AuthenticationInterceptor(oAuthDataService))
                 .addInterceptor(loggingInterceptor)
+                .addInterceptor(AuthenticationInterceptor(oAuthDataService))
                 .build()
 
         service = Retrofit.Builder()
                 .baseUrl("https://api.fitbit.com/1/")
+                .addConverterFactory(GsonConverterFactory.create(SafeGson.getSingleton().gsonInstance))
                 .client(client)
                 .build()
     }

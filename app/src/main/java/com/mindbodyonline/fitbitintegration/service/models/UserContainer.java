@@ -1,12 +1,10 @@
 package com.mindbodyonline.fitbitintegration.service.models;
 
-import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 public class UserContainer {
 
     @SerializedName("user")
-    @Expose
     private User user;
 
     /**
