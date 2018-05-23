@@ -1,9 +1,9 @@
 package com.mindbodyonline.fitbitintegration.service.api.okhttp.interceptor
 
-import com.mindbodyonline.fitbitintegration.service.api.endpoint.AuthEndpoint
-import com.mindbodyonline.fitbitintegration.service.models.auth.OAuthAccessToken
 import com.mindbodyonline.fitbitintegration.service.api.OAuthDataService
 import com.mindbodyonline.fitbitintegration.service.api.RefreshTokenService
+import com.mindbodyonline.fitbitintegration.service.api.endpoint.AuthEndpoint
+import com.mindbodyonline.fitbitintegration.service.models.auth.OAuthAccessToken
 import okhttp3.*
 import java.net.HttpURLConnection.HTTP_UNAUTHORIZED
 
