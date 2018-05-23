@@ -1,6 +1,6 @@
 package com.mindbodyonline.fitbitintegration.service.api
 
-import com.mindbodyonline.fitbitintegration.service.models.UserContainer
+import com.mindbodyonline.fitbitintegration.service.models.UserProfile
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.POST
@@ -21,7 +21,7 @@ interface UserService {
      * @return Call&lt;Void&gt;
      */
     @GET("user/-/profile.json")
-    fun profile(): Call<UserContainer>
+    fun profile(): Call<UserProfile>
 
 
     /**
@@ -53,6 +53,6 @@ interface UserService {
     @POST("user/-/profile.json")
     fun updateProfile(
             @retrofit2.http.Part("gender") gender: String, @retrofit2.http.Part("birthday") birthday: String, @retrofit2.http.Part("height") height: String, @retrofit2.http.Part("aboutMe") aboutMe: String, @retrofit2.http.Part("fullname") fullname: String, @retrofit2.http.Part("country") country: String, @retrofit2.http.Part("state") state: String, @retrofit2.http.Part("city") city: String, @retrofit2.http.Part("strideLengthWalking") strideLengthWalking: String, @retrofit2.http.Part("strideLengthRunning") strideLengthRunning: String, @retrofit2.http.Part("weightUnit") weightUnit: String, @retrofit2.http.Part("heightUnit") heightUnit: String, @retrofit2.http.Part("waterUnit") waterUnit: String, @retrofit2.http.Part("glucoseUnit") glucoseUnit: String, @retrofit2.http.Part("timezone") timezone: String, @retrofit2.http.Part("foodsLocale") foodsLocale: String, @retrofit2.http.Part("locale") locale: String, @retrofit2.http.Part("localeLang") localeLang: String, @retrofit2.http.Part("localeCountry") localeCountry: String, @retrofit2.http.Part("startDayOfWeek") startDayOfWeek: String
-    ): Call<UserContainer>
+    ): Call<UserProfile>
 
 }

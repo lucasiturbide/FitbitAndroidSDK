@@ -1,22 +1,17 @@
 package com.mindbodyonline.fitbitintegration.service.models;
 
-import com.google.gson.annotations.SerializedName;
+import com.google.gson.annotations.Expose;
 
-public class UserContainer {
+@SuppressWarnings("unused")
+public class UserProfile {
 
-    @SerializedName("user")
+    @Expose
     private User user;
 
-    /**
-     * @return The user
-     */
     public User getUser() {
         return user;
     }
 
-    /**
-     * @param user The user
-     */
     public void setUser(User user) {
         this.user = user;
     }

@@ -25,7 +25,7 @@ class RetrofitRefreshTokenService(private val env: Environment, private val endp
         generateService()
     }
 
-    private fun generateService() : AuthService {
+    private fun generateService(): AuthService {
         val retrofit = Retrofit.Builder()
                 .client(client)
                 .addConverterFactory(GsonConverterFactory.create(SafeGson.getSingleton().gsonInstance))
@@ -35,14 +35,14 @@ class RetrofitRefreshTokenService(private val env: Environment, private val endp
     }
 
     private fun createCallback(listener: RefreshTokenService.TokenListener): Callback<OAuthAccessToken> {
-        return object: Callback<OAuthAccessToken> {
+        return object : Callback<OAuthAccessToken> {
             override fun onFailure(call: Call<OAuthAccessToken>?, t: Throwable) {
                 listener.onError(t)
             }
 
             override fun onResponse(call: Call<OAuthAccessToken>?, response: Response<OAuthAccessToken>) {
                 val token: OAuthAccessToken? = response.body()
-                if(response.isSuccessful && token != null) {
+                if (response.isSuccessful && token != null) {
                     listener.onTokenReceived(token)
                 } else {
                     val responseBody = response.raw().body()
@@ -57,7 +57,7 @@ class RetrofitRefreshTokenService(private val env: Environment, private val endp
 
     override fun refreshToken(outdatedToken: OAuthAccessToken, listener: RefreshTokenService.TokenListener) {
         val refreshToken: String? = outdatedToken.refresh_token
-        if(refreshToken?.isNotBlank() == true) {
+        if (refreshToken?.isNotBlank() == true) {
             val refreshTokenModel = RequestRefreshTokenModel(refreshToken)
             authService.refreshToken(endpoint.authEndpoint.basicHeader(env).second, refreshTokenModel).enqueue(createCallback(listener))
         } else {
@@ -72,6 +72,7 @@ class RetrofitRefreshTokenService(private val env: Environment, private val endp
     override fun getTokenServiceUrl(): String = path().toString()
 
     private fun path(): HttpUrl =
-            HttpUrl.parse(endpoint.auth(env))?.newBuilder()?.addPathSegments("oauth2/token")?.build() ?: throw IllegalArgumentException("Unable to parse auth endpoint: ${endpoint.auth(env)}")
+            HttpUrl.parse(endpoint.auth(env))?.newBuilder()?.addPathSegments("oauth2/token")?.build()
+                    ?: throw IllegalArgumentException("Unable to parse auth endpoint: ${endpoint.auth(env)}")
 
 }

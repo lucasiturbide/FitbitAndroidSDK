@@ -1,43 +1,28 @@
 package com.mindbodyonline.fitbitintegration.service.models;
 
 import com.google.gson.annotations.Expose;
-import com.google.gson.annotations.SerializedName;
 
-
+@SuppressWarnings("unused")
 public class Lifetime {
 
-    @SerializedName("total")
     @Expose
-    private Total_ total;
-    @SerializedName("tracker")
+    private Total total;
     @Expose
-    private Tracker_ tracker;
+    private Tracker tracker;
 
-    /**
-     * @return The total
-     */
-    public Total_ getTotal() {
+    public Total getTotal() {
         return total;
     }
 
-    /**
-     * @param total The total
-     */
-    public void setTotal(Total_ total) {
+    public void setTotal(Total total) {
         this.total = total;
     }
 
-    /**
-     * @return The tracker
-     */
-    public Tracker_ getTracker() {
+    public Tracker getTracker() {
         return tracker;
     }
 
-    /**
-     * @param tracker The tracker
-     */
-    public void setTracker(Tracker_ tracker) {
+    public void setTracker(Tracker tracker) {
         this.tracker = tracker;
     }
 

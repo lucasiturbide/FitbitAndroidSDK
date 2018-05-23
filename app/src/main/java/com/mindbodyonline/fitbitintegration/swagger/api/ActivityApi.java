@@ -1,5 +1,10 @@
 package com.mindbodyonline.fitbitintegration.swagger.api;
 
+import com.mindbodyonline.fitbitintegration.service.models.ActivityCategory;
+import com.mindbodyonline.fitbitintegration.service.models.ActivityLog;
+import com.mindbodyonline.fitbitintegration.service.models.ActivityType;
+import com.mindbodyonline.fitbitintegration.service.models.LifetimeActivities;
+
 import retrofit2.Call;
 import retrofit2.http.DELETE;
 import retrofit2.http.GET;
@@ -16,7 +21,7 @@ public interface ActivityApi {
     @GET("1/user/-/activities/date/{date}.json")
     Call<Void>
 
-    UserActivitiesDateDateJsonGet(
+    getDailyActivitySummary(
             @retrofit2.http.Path("date") String date
     );
 
@@ -27,7 +32,7 @@ public interface ActivityApi {
      * @return Call&lt;Void&gt;
      */
     @GET("1/activities.json")
-    Call<Void> activity();
+    Call<ActivityType> browseActivityTypes();
 
 
     /**
@@ -38,7 +43,7 @@ public interface ActivityApi {
      * @return Call&lt;Void&gt;
      */
     @GET("1/activities/{activity-id}.json")
-    Call<Void> activity_0(
+    Call<ActivityCategory> getActivityType(
             @retrofit2.http.Path("activity-id") String activityId
     );
 
@@ -49,7 +54,7 @@ public interface ActivityApi {
      * @return Call&lt;Void&gt;
      */
     @GET("1/user/-/activities.json")
-    Call<Void> activity_1();
+    Call<LifetimeActivities> getLifetimeStats();
 
 
     /**
@@ -188,7 +193,7 @@ public interface ActivityApi {
      * @return Call&lt;Void&gt;
      */
     @GET("1/user/-/activities/list.json")
-    Call<Void> activity_9(
+    Call<ActivityLog> getActivityLogList(
             @retrofit2.http.Query("sort") String sort, @retrofit2.http.Query("offset") Integer offset, @retrofit2.http.Query("limit") Integer limit, @retrofit2.http.Query("beforeDate") String beforeDate, @retrofit2.http.Query("afterDate") String afterDate
     );
 

@@ -1,26 +1,29 @@
 package com.mindbodyonline.fitbitintegration.service.models;
 
 import com.google.gson.annotations.Expose;
-import com.google.gson.annotations.SerializedName;
 
+@SuppressWarnings("unused")
 public class Features {
 
-    @SerializedName("exerciseGoal")
     @Expose
     private Boolean exerciseGoal;
+    @Expose
+    private PhoneNumberFriendFinding phoneNumberFriendFinding;
 
-    /**
-     * @return The exerciseGoal
-     */
     public Boolean getExerciseGoal() {
         return exerciseGoal;
     }
 
-    /**
-     * @param exerciseGoal The exerciseGoal
-     */
     public void setExerciseGoal(Boolean exerciseGoal) {
         this.exerciseGoal = exerciseGoal;
+    }
+
+    public PhoneNumberFriendFinding getPhoneNumberFriendFinding() {
+        return phoneNumberFriendFinding;
+    }
+
+    public void setPhoneNumberFriendFinding(PhoneNumberFriendFinding phoneNumberFriendFinding) {
+        this.phoneNumberFriendFinding = phoneNumberFriendFinding;
     }
 
 }

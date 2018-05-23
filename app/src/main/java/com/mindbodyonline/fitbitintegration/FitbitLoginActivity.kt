@@ -5,7 +5,7 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import com.mindbodyonline.fitbitintegration.service.FitbitService
-import com.mindbodyonline.fitbitintegration.service.models.UserContainer
+import com.mindbodyonline.fitbitintegration.service.models.UserProfile
 import com.mindbodyonline.fitbitintegration.service.models.auth.OAuthAccessToken
 import com.mindbodyonline.fitbitintegration.service.storage.SharedPreferenceTokenStorage
 import retrofit2.Call
@@ -26,20 +26,6 @@ class FitbitLoginActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-//        var apiClient = ApiClient("oauth2")
-//        apiClient.setAccessToken(ACCESS_TOKEN)
-//
-//        var bodyAndWeightApi = apiClient.createService(BodyAndWeightApi::class.java)
-//        var result = bodyAndWeightApi.weight_0("2018-05-01", "2018-05-15").enqueue(object : Callback<String> {
-//            override fun onResponse(call: Call<String>?, response: Response<String>?) {
-//                Log.d("API", response.toString())
-//            }
-//
-//            override fun onFailure(call: Call<String>?, t: Throwable?) {
-//                Log.d("API", t.toString())
-//            }
-//
-//        })
         val sharedPreferences = getSharedPreferences("Fitbit", Context.MODE_PRIVATE)
         val storage = SharedPreferenceTokenStorage(sharedPreferences)
         storage.token = null
@@ -50,12 +36,12 @@ class FitbitLoginActivity : AppCompatActivity() {
                 "",
                 "")
         val fService = FitbitService(sharedPreferences)
-        fService.getUserService().profile().enqueue(object: Callback<UserContainer>{
-            override fun onResponse(call: Call<UserContainer>?, response: Response<UserContainer>?) {
+        fService.getUserService().profile().enqueue(object : Callback<UserProfile> {
+            override fun onResponse(call: Call<UserProfile>?, response: Response<UserProfile>?) {
                 Log.d("Service", "Response: " + response?.body()?.user?.dateOfBirth)
             }
 
-            override fun onFailure(call: Call<UserContainer>?, t: Throwable?) {
+            override fun onFailure(call: Call<UserProfile>?, t: Throwable?) {
                 Log.d("Service", "Error: " + t?.message)
             }
 

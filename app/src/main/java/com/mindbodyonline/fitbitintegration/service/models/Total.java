@@ -1,59 +1,57 @@
 package com.mindbodyonline.fitbitintegration.service.models;
 
 import com.google.gson.annotations.Expose;
-import com.google.gson.annotations.SerializedName;
 
-
+@SuppressWarnings("unused")
 public class Total {
 
-    @SerializedName("distance")
+    @Expose
+    private Long activeScore;
+    @Expose
+    private Long caloriesOut;
     @Expose
     private Distance distance;
-    @SerializedName("floors")
     @Expose
     private Floors floors;
-    @SerializedName("steps")
     @Expose
     private Steps steps;
 
-    /**
-     * @return The distance
-     */
+    public Long getActiveScore() {
+        return activeScore;
+    }
+
+    public void setActiveScore(Long activeScore) {
+        this.activeScore = activeScore;
+    }
+
+    public Long getCaloriesOut() {
+        return caloriesOut;
+    }
+
+    public void setCaloriesOut(Long caloriesOut) {
+        this.caloriesOut = caloriesOut;
+    }
+
     public Distance getDistance() {
         return distance;
     }
 
-    /**
-     * @param distance The distance
-     */
     public void setDistance(Distance distance) {
         this.distance = distance;
     }
 
-    /**
-     * @return The floors
-     */
     public Floors getFloors() {
         return floors;
     }
 
-    /**
-     * @param floors The floors
-     */
     public void setFloors(Floors floors) {
         this.floors = floors;
     }
 
-    /**
-     * @return The steps
-     */
     public Steps getSteps() {
         return steps;
     }
 
-    /**
-     * @param steps The steps
-     */
     public void setSteps(Steps steps) {
         this.steps = steps;
     }

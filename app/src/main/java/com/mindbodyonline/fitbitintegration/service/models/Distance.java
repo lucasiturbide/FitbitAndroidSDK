@@ -1,43 +1,29 @@
 package com.mindbodyonline.fitbitintegration.service.models;
 
 import com.google.gson.annotations.Expose;
-import com.google.gson.annotations.SerializedName;
 
+@SuppressWarnings("unused")
 public class Distance {
 
-    @SerializedName("activity")
     @Expose
-    private String activity;
-    @SerializedName("distance")
+    private String date;
     @Expose
-    private Double distance;
+    private Double value;
 
-    /**
-     * @return The activity
-     */
-    public String getActivity() {
-        return activity;
+    public String getDate() {
+        return date;
     }
 
-    /**
-     * @param activity The activity
-     */
-    public void setActivity(String activity) {
-        this.activity = activity;
+    public void setDate(String date) {
+        this.date = date;
     }
 
-    /**
-     * @return The distance
-     */
-    public Double getDistance() {
-        return distance;
+    public Double getValue() {
+        return value;
     }
 
-    /**
-     * @param distance The distance
-     */
-    public void setDistance(Double distance) {
-        this.distance = distance;
+    public void setValue(Double value) {
+        this.value = value;
     }
 
 }
