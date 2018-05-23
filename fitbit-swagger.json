@@ -1,0 +1,5927 @@
+{
+  "definitions": {}, 
+  "externalDocs": {
+    "description": "Full documentation", 
+    "url": "https://dev.fitbit.com/build/reference/web-api/"
+  }, 
+  "host": "api.fitbit.com", 
+  "info": {
+    "contact": {
+      "email": "api@fitbit.com"
+    }, 
+    "description": "Fitbit provides a Web API for accessing data from Fitbit activity trackers, Aria scale, and manually entered logs. Anyone can develop an application to access and modify a Fitbit user's data on their behalf, so long as it complies with Fitbit Platform Terms of Service. These Swagger UI docs do not currently support making Fitbit API requests directly. In order to make a request, construct a request for the appropriate endpoint using this documentation, and then add an Authorization header to each request with an access token obtained using the steps outlined here: https://dev.fitbit.com/build/reference/web-api/oauth2/#obtaining-consent.", 
+    "termsOfService": "https://dev.fitbit.com/terms", 
+    "title": "Fitbit Web API", 
+    "version": "1"
+  }, 
+  "paths": {
+    "/1.2/user/-/sleep.json": {
+      "post": {
+        "description": "Creates a log entry for a sleep event and returns a response in the format requested.", 
+        "operationId": "sleep", 
+        "parameters": [
+          {
+            "description": "Start time includes hours and minutes in the format HH:mm.", 
+            "in": "query", 
+            "name": "startTime", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "Duration in milliseconds.", 
+            "in": "query", 
+            "name": "duration", 
+            "required": true, 
+            "type": "integer"
+          }, 
+          {
+            "description": "Log entry in the format yyyy-MM-dd.", 
+            "in": "query", 
+            "name": "date", 
+            "required": true, 
+            "type": "date"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "Successful request."
+          }, 
+          "401": {
+            "description": "The request requires user authentication."
+          }, 
+          "403": {
+            "description": "The server understood the request, but is refusing to fulfill it."
+          }
+        }, 
+        "security": [
+          {
+            "oauth2": [
+              "activity", 
+              "heartrate", 
+              "location", 
+              "nutrition", 
+              "profile", 
+              "settings", 
+              "sleep", 
+              "social", 
+              "weight"
+            ]
+          }
+        ], 
+        "summary": "Log Sleep", 
+        "tags": [
+          "Sleep"
+        ]
+      }
+    }, 
+    "/1.2/user/-/sleep/date/{base-date}/{end-date}.json": {
+      "get": {
+        "description": "The Get Sleep Logs by Date Range endpoint returns a list of a user's sleep log entries (including naps) as well as detailed sleep entry data for a given date range (inclusive of start and end dates).", 
+        "operationId": "sleep", 
+        "parameters": [
+          {
+            "description": "The date of records to be returned. In the format yyyy-MM-dd.", 
+            "in": "path", 
+            "name": "base-date", 
+            "required": true, 
+            "type": "date"
+          }, 
+          {
+            "description": "The date of records to be returned. In the format yyyy-MM-dd.", 
+            "in": "path", 
+            "name": "end-date", 
+            "required": true, 
+            "type": "date"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "Successful request."
+          }, 
+          "401": {
+            "description": "The request requires user authentication."
+          }, 
+          "403": {
+            "description": "The server understood the request, but is refusing to fulfill it."
+          }
+        }, 
+        "security": [
+          {
+            "oauth2": [
+              "activity", 
+              "heartrate", 
+              "location", 
+              "nutrition", 
+              "profile", 
+              "settings", 
+              "sleep", 
+              "social", 
+              "weight"
+            ]
+          }
+        ], 
+        "summary": "Get Sleep Logs by Date Range", 
+        "tags": [
+          "Sleep"
+        ]
+      }
+    }, 
+    "/1.2/user/-/sleep/date/{date}.json": {
+      "get": {
+        "description": "The Get Sleep Logs by Date endpoint returns a summary and list of a user's sleep log entries (including naps) as well as detailed sleep entry data for a given day.", 
+        "operationId": "sleep", 
+        "parameters": [
+          {
+            "description": "The date of records to be returned. In the format yyyy-MM-dd.", 
+            "in": "path", 
+            "name": "date", 
+            "required": true, 
+            "type": "date"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "Successful request."
+          }, 
+          "401": {
+            "description": "The request requires user authentication."
+          }, 
+          "403": {
+            "description": "The server understood the request, but is refusing to fulfill it."
+          }
+        }, 
+        "security": [
+          {
+            "oauth2": [
+              "activity", 
+              "heartrate", 
+              "location", 
+              "nutrition", 
+              "profile", 
+              "settings", 
+              "sleep", 
+              "social", 
+              "weight"
+            ]
+          }
+        ], 
+        "summary": "Get Sleep Log", 
+        "tags": [
+          "Sleep"
+        ]
+      }
+    }, 
+    "/1.2/user/-/sleep/goal.json": {
+      "get": {
+        "description": "Returns the user's sleep goal.", 
+        "operationId": "sleep", 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "Successful request."
+          }, 
+          "401": {
+            "description": "The request requires user authentication."
+          }, 
+          "403": {
+            "description": "The server understood the request, but is refusing to fulfill it."
+          }
+        }, 
+        "security": [
+          {
+            "oauth2": [
+              "activity", 
+              "heartrate", 
+              "location", 
+              "nutrition", 
+              "profile", 
+              "settings", 
+              "sleep", 
+              "social", 
+              "weight"
+            ]
+          }
+        ], 
+        "summary": "Get Sleep Goal", 
+        "tags": [
+          "Sleep"
+        ]
+      }, 
+      "post": {
+        "description": "Create or update the user's sleep goal and get a response in the JSON format.", 
+        "operationId": "sleep", 
+        "parameters": [
+          {
+            "description": "Duration of sleep goal.", 
+            "in": "query", 
+            "name": "minDuration", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "Successful request."
+          }, 
+          "401": {
+            "description": "The request requires user authentication."
+          }, 
+          "403": {
+            "description": "The server understood the request, but is refusing to fulfill it."
+          }
+        }, 
+        "security": [
+          {
+            "oauth2": [
+              "activity", 
+              "heartrate", 
+              "location", 
+              "nutrition", 
+              "profile", 
+              "settings", 
+              "sleep", 
+              "social", 
+              "weight"
+            ]
+          }
+        ], 
+        "summary": "Update Sleep Goal", 
+        "tags": [
+          "Sleep"
+        ]
+      }
+    }, 
+    "/1.2/user/-/sleep/list.json": {
+      "get": {
+        "description": "The Get Sleep Logs List endpoint returns a list of a user's sleep logs (including naps) before or after a given day with offset, limit, and sort order.", 
+        "operationId": "sleep", 
+        "parameters": [
+          {
+            "description": "The date in the format yyyy-MM-ddTHH:mm:ss. Only yyyy-MM-dd is required. Either beforeDate or afterDate should be specified.", 
+            "in": "query", 
+            "name": "beforeDate", 
+            "required": false, 
+            "type": "date"
+          }, 
+          {
+            "description": "The date in the format yyyy-MM-ddTHH:mm:ss.", 
+            "in": "query", 
+            "name": "afterDate", 
+            "required": false, 
+            "type": "date"
+          }, 
+          {
+            "description": "The sort order of entries by date asc (ascending) or desc (descending).", 
+            "in": "query", 
+            "name": "sort", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "default": "0", 
+            "description": "The offset number of entries.", 
+            "in": "query", 
+            "name": "offset", 
+            "required": true, 
+            "type": "integer"
+          }, 
+          {
+            "description": "The maximum number of entries returned (maximum;100).", 
+            "in": "query", 
+            "name": "limit", 
+            "required": true, 
+            "type": "integer"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "Successful request."
+          }, 
+          "401": {
+            "description": "The request requires user authentication."
+          }, 
+          "403": {
+            "description": "The server understood the request, but is refusing to fulfill it."
+          }
+        }, 
+        "security": [
+          {
+            "oauth2": [
+              "activity", 
+              "heartrate", 
+              "location", 
+              "nutrition", 
+              "profile", 
+              "settings", 
+              "sleep", 
+              "social", 
+              "weight"
+            ]
+          }
+        ], 
+        "summary": "Get Sleep Logs List", 
+        "tags": [
+          "Sleep"
+        ]
+      }
+    }, 
+    "/1.2/user/-/sleep/{log-id}.json": {
+      "delete": {
+        "description": "Deletes a user's sleep log entry with the given ID.", 
+        "operationId": "sleep", 
+        "parameters": [
+          {
+            "description": "The ID of the sleep log to be deleted.", 
+            "in": "path", 
+            "name": "log-id", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "Successful request."
+          }, 
+          "401": {
+            "description": "The request requires user authentication."
+          }, 
+          "403": {
+            "description": "The server understood the request, but is refusing to fulfill it."
+          }
+        }, 
+        "security": [
+          {
+            "oauth2": [
+              "activity", 
+              "heartrate", 
+              "location", 
+              "nutrition", 
+              "profile", 
+              "settings", 
+              "sleep", 
+              "social", 
+              "weight"
+            ]
+          }
+        ], 
+        "summary": "Delete Sleep Log", 
+        "tags": [
+          "Sleep"
+        ]
+      }
+    }, 
+    "/1/activities.json": {
+      "get": {
+        "description": "Retreives a tree of all valid Fitbit public activities from the activities catelog as well as private custom activities the user created in the format requested.", 
+        "operationId": "activity", 
+        "produces": [
+          "application/x-www-form-urlencoded"
+        ], 
+        "responses": {
+          "200": {
+            "description": "A successful request."
+          }, 
+          "400": {
+            "description": "The request had bad syntax or was inherently impossible to be satified."
+          }, 
+          "401": {
+            "description": "The request requires user authentication."
+          }, 
+          "409": {
+            "description": "Returned if the given user is already subscribed to this stream using a different subscription ID, OR if the given subscription ID is already used to identify a subscription to a different stream."
+          }
+        }, 
+        "security": [
+          {
+            "oauth2": [
+              "activity", 
+              "heartrate", 
+              "location", 
+              "nutrition", 
+              "profile", 
+              "settings", 
+              "sleep", 
+              "social", 
+              "weight"
+            ]
+          }
+        ], 
+        "summary": "Browse Activity Types", 
+        "tags": [
+          "Activity"
+        ]
+      }
+    }, 
+    "/1/activities/{activity-id}.json": {
+      "get": {
+        "description": "Returns the detail of a specific activity in the Fitbit activities database in the format requested. If activity has levels, it also returns a list of activity level details.", 
+        "operationId": "activity", 
+        "parameters": [
+          {
+            "description": "The activity ID.", 
+            "in": "path", 
+            "name": "activity-id", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [
+          "application/x-www-form-urlencoded"
+        ], 
+        "responses": {
+          "200": {
+            "description": "A successful request."
+          }, 
+          "400": {
+            "description": "The request had bad syntax or was inherently impossible to be satified."
+          }, 
+          "401": {
+            "description": "The request requires user authentication."
+          }, 
+          "409": {
+            "description": "Returned if the given user is already subscribed to this stream using a different subscription ID, OR if the given subscription ID is already used to identify a subscription to a different stream."
+          }
+        }, 
+        "security": [
+          {
+            "oauth2": [
+              "activity", 
+              "heartrate", 
+              "location", 
+              "nutrition", 
+              "profile", 
+              "settings", 
+              "sleep", 
+              "social", 
+              "weight"
+            ]
+          }
+        ], 
+        "summary": "Get Activity Type", 
+        "tags": [
+          "Activity"
+        ]
+      }
+    }, 
+    "/1/foods/locales.json": {
+      "get": {
+        "description": "Returns the food locales that the user may choose to search, log, and create food in.", 
+        "operationId": "food", 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "Successful request."
+          }, 
+          "400": {
+            "description": "The request had bad syntax or was inherently impossible to be satified."
+          }, 
+          "401": {
+            "description": "The request requires user authentication."
+          }, 
+          "403": {
+            "description": "The server understood the request, but is refusing to fulfill it."
+          }
+        }, 
+        "security": [
+          {
+            "oauth2": [
+              "activity", 
+              "heartrate", 
+              "location", 
+              "nutrition", 
+              "profile", 
+              "settings", 
+              "sleep", 
+              "social", 
+              "weight"
+            ]
+          }
+        ], 
+        "summary": "Get Food Locales", 
+        "tags": [
+          "Food Logging"
+        ]
+      }
+    }, 
+    "/1/foods/search.json": {
+      "get": {
+        "description": "Returns a list of public foods from the Fitbit food database and private food the user created in the format requested.", 
+        "operationId": "food", 
+        "parameters": [
+          {
+            "description": "The URL-encoded search query.", 
+            "in": "query", 
+            "name": "query", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "A successful request."
+          }, 
+          "400": {
+            "description": "The request had bad syntax or was inherently impossible to be satified."
+          }, 
+          "401": {
+            "description": "The request requires user authentication."
+          }, 
+          "403": {
+            "description": "The server understood the request, but is refusing to fulfill it."
+          }
+        }, 
+        "security": [
+          {
+            "oauth2": [
+              "activity", 
+              "heartrate", 
+              "location", 
+              "nutrition", 
+              "profile", 
+              "settings", 
+              "sleep", 
+              "social", 
+              "weight"
+            ]
+          }
+        ], 
+        "summary": "Search Foods", 
+        "tags": [
+          "Food Logging"
+        ]
+      }
+    }, 
+    "/1/foods/units.json": {
+      "get": {
+        "description": "Returns a list of all valid Fitbit food units in the format requested.", 
+        "operationId": "food", 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "Successful request."
+          }, 
+          "400": {
+            "description": "The request had bad syntax or was inherently impossible to be satified."
+          }, 
+          "401": {
+            "description": "The request requires user authentication."
+          }, 
+          "403": {
+            "description": "The server understood the request, but is refusing to fulfill it."
+          }
+        }, 
+        "security": [
+          {
+            "oauth2": [
+              "activity", 
+              "heartrate", 
+              "location", 
+              "nutrition", 
+              "profile", 
+              "settings", 
+              "sleep", 
+              "social", 
+              "weight"
+            ]
+          }
+        ], 
+        "summary": "Get Food Units", 
+        "tags": [
+          "Food Logging"
+        ]
+      }
+    }, 
+    "/1/foods/{food-id}.json": {
+      "get": {
+        "description": "Returns the details of a specific food in the Fitbit food databases or a private food that an authorized user has entered in the format requested.", 
+        "operationId": "food", 
+        "parameters": [
+          {
+            "description": "The ID of the food.", 
+            "in": "path", 
+            "name": "food-id", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "Successful request."
+          }, 
+          "400": {
+            "description": "The request had bad syntax or was inherently impossible to be satified."
+          }, 
+          "401": {
+            "description": "The request requires user authentication."
+          }, 
+          "403": {
+            "description": "The server understood the request, but is refusing to fulfill it."
+          }
+        }, 
+        "security": [
+          {
+            "oauth2": [
+              "activity", 
+              "heartrate", 
+              "location", 
+              "nutrition", 
+              "profile", 
+              "settings", 
+              "sleep", 
+              "social", 
+              "weight"
+            ]
+          }
+        ], 
+        "summary": "Get Food", 
+        "tags": [
+          "Food Logging"
+        ]
+      }
+    }, 
+    "/1/user/-/activities.json": {
+      "get": {
+        "description": "Updates a user's daily activity goals and returns a response using units in the unit system which corresponds to the Accept-Language header provided.", 
+        "operationId": "activity", 
+        "produces": [
+          "application/x-www-form-urlencoded"
+        ], 
+        "responses": {
+          "200": {
+            "description": "A successful request."
+          }, 
+          "400": {
+            "description": "The request had bad syntax or was inherently impossible to be satified."
+          }, 
+          "401": {
+            "description": "The request requires user authentication."
+          }, 
+          "409": {
+            "description": "Returned if the given user is already subscribed to this stream using a different subscription ID, OR if the given subscription ID is already used to identify a subscription to a different stream."
+          }
+        }, 
+        "security": [
+          {
+            "oauth2": [
+              "activity", 
+              "heartrate", 
+              "location", 
+              "nutrition", 
+              "profile", 
+              "settings", 
+              "sleep", 
+              "social", 
+              "weight"
+            ]
+          }
+        ], 
+        "summary": "Get Lifetime Stats", 
+        "tags": [
+          "Activity"
+        ]
+      }, 
+      "post": {
+        "description": "The Log Activity endpoint creates log entry for an activity or user's private custom activity using units in the unit system which corresponds to the Accept-Language header provided (or using optional custom distanceUnit) and get a response in the format requested.", 
+        "operationId": "activity", 
+        "parameters": [
+          {
+            "description": "The ID of the activity, directory activity or intensity level activity.", 
+            "in": "query", 
+            "name": "activityId", 
+            "required": true, 
+            "type": "integer"
+          }, 
+          {
+            "description": "Custom activity name. Either activityId or activityName must be provided.", 
+            "in": "query", 
+            "name": "activityName", 
+            "required": false, 
+            "type": "string"
+          }, 
+          {
+            "description": "Calories burned that are manaully specified. Required with activityName must be provided.", 
+            "in": "query", 
+            "name": "manualCalories", 
+            "required": true, 
+            "type": "integer"
+          }, 
+          {
+            "description": "Activity start time. Hours and minutes in the format HH:mm:ss.", 
+            "in": "query", 
+            "name": "startTime", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "Duration in milliseconds.", 
+            "in": "query", 
+            "name": "durationMillis", 
+            "required": true, 
+            "type": "integer"
+          }, 
+          {
+            "description": "Log entry date in the format yyyy-MM-dd.", 
+            "in": "query", 
+            "name": "date", 
+            "required": true, 
+            "type": "date"
+          }, 
+          {
+            "description": "Distance is required for logging directory activity in the format X.XX and in the selected distanceUnit.", 
+            "in": "query", 
+            "name": "distance", 
+            "required": true, 
+            "type": "integer"
+          }, 
+          {
+            "description": "Distance measurement unit. Steps units are available only for Walking (activityId=90013) and Running (activityId=90009) directory activities and their intensity levels.", 
+            "in": "query", 
+            "name": "distanceUnit", 
+            "required": false, 
+            "type": "integer"
+          }
+        ], 
+        "produces": [
+          "application/x-www-form-urlencoded"
+        ], 
+        "responses": {
+          "200": {
+            "description": "A successful request."
+          }, 
+          "400": {
+            "description": "The request had bad syntax or was inherently impossible to be satified."
+          }, 
+          "401": {
+            "description": "The request requires user authentication."
+          }, 
+          "409": {
+            "description": "Returned if the given user is already subscribed to this stream using a different subscription ID, OR if the given subscription ID is already used to identify a subscription to a different stream."
+          }
+        }, 
+        "security": [
+          {
+            "oauth2": [
+              "activity", 
+              "heartrate", 
+              "location", 
+              "nutrition", 
+              "profile", 
+              "settings", 
+              "sleep", 
+              "social", 
+              "weight"
+            ]
+          }
+        ], 
+        "summary": "Log Activity", 
+        "tags": [
+          "Activity"
+        ]
+      }
+    }, 
+    "/1/user/-/activities/date/{date}.json": {
+      "get": {
+        "description": "Retrieves a summary and list of a user's activities and activity log entries for a given day.", 
+        "parameters": [
+          {
+            "description": "The date in the format yyyy-MM-dd", 
+            "in": "path", 
+            "name": "date", 
+            "required": true, 
+            "type": "date"
+          }
+        ], 
+        "produces": [
+          "application/x-www-form-urlencoded"
+        ], 
+        "responses": {
+          "200": {
+            "description": "A successful request."
+          }, 
+          "400": {
+            "description": "The request had bad syntax or was inherently impossible to be satified."
+          }, 
+          "401": {
+            "description": "The request requires user authentication."
+          }, 
+          "409": {
+            "description": "Returned if the given user is already subscribed to this stream using a different subscription ID, OR if the given subscription ID is already used to identify a subscription to a different stream."
+          }
+        }, 
+        "security": [
+          {
+            "oauth2": [
+              "activity", 
+              "heartrate", 
+              "location", 
+              "nutrition", 
+              "profile", 
+              "settings", 
+              "sleep", 
+              "social", 
+              "weight"
+            ]
+          }
+        ], 
+        "summary": "Get Daily Activity Summary", 
+        "tags": [
+          "Activity"
+        ]
+      }
+    }, 
+    "/1/user/-/activities/favorite.json": {
+      "get": {
+        "description": "Returns a list of a user's favorite activities.", 
+        "operationId": "activity", 
+        "produces": [
+          "application/x-www-form-urlencoded"
+        ], 
+        "responses": {
+          "200": {
+            "description": "A successful request."
+          }, 
+          "400": {
+            "description": "The request had bad syntax or was inherently impossible to be satified."
+          }, 
+          "401": {
+            "description": "The request requires user authentication."
+          }, 
+          "409": {
+            "description": "Returned if the given user is already subscribed to this stream using a different subscription ID, OR if the given subscription ID is already used to identify a subscription to a different stream."
+          }
+        }, 
+        "security": [
+          {
+            "oauth2": [
+              "activity", 
+              "heartrate", 
+              "location", 
+              "nutrition", 
+              "profile", 
+              "settings", 
+              "sleep", 
+              "social", 
+              "weight"
+            ]
+          }
+        ], 
+        "summary": "Get Favorite Activities", 
+        "tags": [
+          "Activity"
+        ]
+      }
+    }, 
+    "/1/user/-/activities/favorite/{activity-id}.json": {
+      "delete": {
+        "description": "Removes the activity with the given ID from a user's list of favorite activities.", 
+        "operationId": "activity", 
+        "parameters": [
+          {
+            "description": "The ID of the activity to be removed.", 
+            "in": "path", 
+            "name": "activity-id", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [
+          "application/x-www-form-urlencoded"
+        ], 
+        "responses": {
+          "200": {
+            "description": "A successful request."
+          }, 
+          "204": {
+            "description": "The server successfully processed the request, but is not returning any content."
+          }, 
+          "400": {
+            "description": "The request had bad syntax or was inherently impossible to be satified."
+          }, 
+          "401": {
+            "description": "The request requires user authentication."
+          }
+        }, 
+        "security": [
+          {
+            "oauth2": [
+              "activity", 
+              "heartrate", 
+              "location", 
+              "nutrition", 
+              "profile", 
+              "settings", 
+              "sleep", 
+              "social", 
+              "weight"
+            ]
+          }
+        ], 
+        "summary": "Delete Favorite Activity", 
+        "tags": [
+          "Activity"
+        ]
+      }, 
+      "post": {
+        "description": "Adds the activity with the given ID to user's list of favorite activities.", 
+        "operationId": "activity", 
+        "parameters": [
+          {
+            "description": "The encoded ID of the activity.", 
+            "in": "path", 
+            "name": "activity-id", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [
+          "application/x-www-form-urlencoded"
+        ], 
+        "responses": {
+          "200": {
+            "description": "A successful request."
+          }, 
+          "201": {
+            "description": "The request fulfilled and new resource being created."
+          }, 
+          "400": {
+            "description": "The request had bad syntax or was inherently impossible to be satified."
+          }, 
+          "401": {
+            "description": "The request requires user authentication."
+          }, 
+          "409": {
+            "description": "Returned if the given user is already subscribed to this stream using a different subscription ID, OR if the given subscription ID is already used to identify a subscription to a different stream."
+          }
+        }, 
+        "security": [
+          {
+            "oauth2": [
+              "activity", 
+              "heartrate", 
+              "location", 
+              "nutrition", 
+              "profile", 
+              "settings", 
+              "sleep", 
+              "social", 
+              "weight"
+            ]
+          }
+        ], 
+        "summary": "Add Favorite Activity", 
+        "tags": [
+          "Activity"
+        ]
+      }
+    }, 
+    "/1/user/-/activities/frequent.json": {
+      "get": {
+        "description": "Retreives a list of a user's frequent activities in the format requested using units in the unit system which corresponds to the Accept-Language header provided.", 
+        "operationId": "activity", 
+        "produces": [
+          "application/x-www-form-urlencoded"
+        ], 
+        "responses": {
+          "200": {
+            "description": "A successful request."
+          }, 
+          "400": {
+            "description": "The request had bad syntax or was inherently impossible to be satified."
+          }, 
+          "401": {
+            "description": "The request requires user authentication."
+          }, 
+          "409": {
+            "description": "Returned if the given user is already subscribed to this stream using a different subscription ID, OR if the given subscription ID is already used to identify a subscription to a different stream."
+          }
+        }, 
+        "security": [
+          {
+            "oauth2": [
+              "activity", 
+              "heartrate", 
+              "location", 
+              "nutrition", 
+              "profile", 
+              "settings", 
+              "sleep", 
+              "social", 
+              "weight"
+            ]
+          }
+        ], 
+        "summary": "Get Frequent Activities", 
+        "tags": [
+          "Activity"
+        ]
+      }
+    }, 
+    "/1/user/-/activities/goals/{period}.json": {
+      "get": {
+        "description": "Retreives a user's current daily or weekly activity goals using measurement units as defined in the unit system, which corresponds to the Accept-Language header provided.", 
+        "operationId": "activity", 
+        "parameters": [
+          {
+            "description": "daily or weekly.", 
+            "in": "path", 
+            "name": "period", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [
+          "application/x-www-form-urlencoded"
+        ], 
+        "responses": {
+          "200": {
+            "description": "A successful request."
+          }, 
+          "400": {
+            "description": "The request had bad syntax or was inherently impossible to be satified."
+          }, 
+          "401": {
+            "description": "The request requires user authentication."
+          }, 
+          "409": {
+            "description": "Returned if the given user is already subscribed to this stream using a different subscription ID, OR if the given subscription ID is already used to identify a subscription to a different stream."
+          }
+        }, 
+        "security": [
+          {
+            "oauth2": [
+              "activity", 
+              "heartrate", 
+              "location", 
+              "nutrition", 
+              "profile", 
+              "settings", 
+              "sleep", 
+              "social", 
+              "weight"
+            ]
+          }
+        ], 
+        "summary": "Get Activity Goals", 
+        "tags": [
+          "Activity"
+        ]
+      }, 
+      "post": {
+        "description": "Updates a user's daily or weekly activity goals and returns a response using units in the unit system which corresponds to the Accept-Language header provided.", 
+        "operationId": "activity", 
+        "parameters": [
+          {
+            "description": "daily or weekly.", 
+            "in": "path", 
+            "name": "period", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "goal type", 
+            "in": "query", 
+            "name": "type", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "goal value", 
+            "in": "query", 
+            "name": "value", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [
+          "application/x-www-form-urlencoded"
+        ], 
+        "responses": {
+          "200": {
+            "description": "A successful request."
+          }, 
+          "400": {
+            "description": "The request had bad syntax or was inherently impossible to be satified."
+          }, 
+          "401": {
+            "description": "The request requires user authentication."
+          }, 
+          "409": {
+            "description": "Returned if the given user is already subscribed to this stream using a different subscription ID, OR if the given subscription ID is already used to identify a subscription to a different stream."
+          }
+        }, 
+        "security": [
+          {
+            "oauth2": [
+              "activity", 
+              "heartrate", 
+              "location", 
+              "nutrition", 
+              "profile", 
+              "settings", 
+              "sleep", 
+              "social", 
+              "weight"
+            ]
+          }
+        ], 
+        "summary": "Update Activity Goals", 
+        "tags": [
+          "Activity"
+        ]
+      }
+    }, 
+    "/1/user/-/activities/heart/date/{base-date}/{end-date}.json": {
+      "get": {
+        "description": "Returns the time series data in the specified range for a given resource in the format requested using units in the unit systems that corresponds to the Accept-Language header provided.", 
+        "operationId": "", 
+        "parameters": [
+          {
+            "description": "The range start date in  the format yyyy-MM-dd or today.", 
+            "in": "path", 
+            "name": "base-date", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "The end date of the range.", 
+            "in": "path", 
+            "name": "end-date", 
+            "required": true, 
+            "type": "date"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "Successful request."
+          }, 
+          "401": {
+            "description": "The request requires user authentication."
+          }, 
+          "403": {
+            "description": "The server understood the request, but is refusing to fulfill it."
+          }
+        }, 
+        "security": [
+          {
+            "oauth2": [
+              "activity", 
+              "heartrate", 
+              "location", 
+              "nutrition", 
+              "profile", 
+              "settings", 
+              "sleep", 
+              "social", 
+              "weight"
+            ]
+          }
+        ], 
+        "summary": "Get Heart Rate Time Series", 
+        "tags": [
+          "Time Series"
+        ]
+      }
+    }, 
+    "/1/user/-/activities/heart/date/{date}/1d/{detail-level}.json": {
+      "get": {
+        "description": "Returns the intraday time series for a given resource in the format requested. If your application has the appropriate access, your calls to a time series endpoint for a specific day (by using start and end dates on the same day or a period of 1d), the response will include extended intraday values with a one-minute detail level for that day. Unlike other time series calls that allow fetching data of other users, intraday data is available only for and to the authorized user.", 
+        "operationId": "intraday", 
+        "parameters": [
+          {
+            "description": "The date in the format of yyyy-MM-dd or today.", 
+            "in": "path", 
+            "name": "date", 
+            "required": true, 
+            "type": "date"
+          }, 
+          {
+            "default": "1min", 
+            "description": "The number of data points to include either 1sec or 1min.", 
+            "in": "path", 
+            "name": "detail-level", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "Successful request."
+          }, 
+          "401": {
+            "description": "The request requires user authentication."
+          }, 
+          "403": {
+            "description": "The server understood the request, but is refusing to fulfill it."
+          }
+        }, 
+        "security": [
+          {
+            "oauth2": [
+              "activity", 
+              "heartrate", 
+              "location", 
+              "nutrition", 
+              "profile", 
+              "settings", 
+              "sleep", 
+              "social", 
+              "weight"
+            ]
+          }
+        ], 
+        "summary": "Get Heart Rate Intraday Time Series", 
+        "tags": [
+          "Time Series"
+        ]
+      }
+    }, 
+    "/1/user/-/activities/heart/date/{date}/1d/{detail-level}/time/{start-time}/{end-time}.json": {
+      "get": {
+        "description": "Returns the intraday time series for a given resource in the format requested. If your application has the appropriate access, your calls to a time series endpoint for a specific day (by using start and end dates on the same day or a period of 1d), the response will include extended intraday values with a one-minute detail level for that day. Unlike other time series calls that allow fetching data of other users, intraday data is available only for and to the authorized user.", 
+        "operationId": "intraday", 
+        "parameters": [
+          {
+            "description": "The date in the format of yyyy-MM-dd or today.", 
+            "in": "path", 
+            "name": "date", 
+            "required": true, 
+            "type": "date"
+          }, 
+          {
+            "default": "1min", 
+            "description": "The number of data points to include either 1sec or 1min.", 
+            "in": "path", 
+            "name": "detail-level", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "The start of the period in the format of HH:mm.", 
+            "in": "path", 
+            "name": "start-time", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "The end time of the period in the format of HH:mm.", 
+            "in": "path", 
+            "name": "end-time", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "Successful request."
+          }, 
+          "401": {
+            "description": "The request requires user authentication."
+          }, 
+          "403": {
+            "description": "The server understood the request, but is refusing to fulfill it."
+          }
+        }, 
+        "security": [
+          {
+            "oauth2": [
+              "activity", 
+              "heartrate", 
+              "location", 
+              "nutrition", 
+              "profile", 
+              "settings", 
+              "sleep", 
+              "social", 
+              "weight"
+            ]
+          }
+        ], 
+        "summary": "Get Heart Rate Intraday Time Series", 
+        "tags": [
+          "Time Series"
+        ]
+      }
+    }, 
+    "/1/user/-/activities/heart/date/{date}/{end-date}/{detail-level}.json": {
+      "get": {
+        "description": "Returns the intraday time series for a given resource in the format requested. If your application has the appropriate access, your calls to a time series endpoint for a specific day (by using start and end dates on the same day or a period of 1d), the response will include extended intraday values with a one-minute detail level for that day. Unlike other time series calls that allow fetching data of other users, intraday data is available only for and to the authorized user.", 
+        "operationId": "intraday", 
+        "parameters": [
+          {
+            "description": "The date in the format of yyyy-MM-dd or today.", 
+            "in": "path", 
+            "name": "date", 
+            "required": true, 
+            "type": "date"
+          }, 
+          {
+            "description": "The end date in the format of yyyy-MM-dd or today.", 
+            "in": "path", 
+            "name": "end-date", 
+            "required": true, 
+            "type": "date"
+          }, 
+          {
+            "default": "1min", 
+            "description": "The number of data points to include either 1sec or 1min.", 
+            "in": "path", 
+            "name": "detail-level", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "Successful request."
+          }, 
+          "401": {
+            "description": "The request requires user authentication."
+          }, 
+          "403": {
+            "description": "The server understood the request, but is refusing to fulfill it."
+          }
+        }, 
+        "security": [
+          {
+            "oauth2": [
+              "activity", 
+              "heartrate", 
+              "location", 
+              "nutrition", 
+              "profile", 
+              "settings", 
+              "sleep", 
+              "social", 
+              "weight"
+            ]
+          }
+        ], 
+        "summary": "Get Heart Rate Intraday Time Series", 
+        "tags": [
+          "Time Series"
+        ]
+      }
+    }, 
+    "/1/user/-/activities/heart/date/{date}/{end-date}/{detail-level}/time/{start-time}/{end-time}.json": {
+      "get": {
+        "description": "Returns the intraday time series for a given resource in the format requested. If your application has the appropriate access, your calls to a time series endpoint for a specific day (by using start and end dates on the same day or a period of 1d), the response will include extended intraday values with a one-minute detail level for that day. Unlike other time series calls that allow fetching data of other users, intraday data is available only for and to the authorized user.", 
+        "operationId": "intraday", 
+        "parameters": [
+          {
+            "description": "The date in the format of yyyy-MM-dd or today.", 
+            "in": "path", 
+            "name": "date", 
+            "required": true, 
+            "type": "date"
+          }, 
+          {
+            "description": "The end date in the format of yyyy-MM-dd or today.", 
+            "in": "path", 
+            "name": "end-date", 
+            "required": true, 
+            "type": "date"
+          }, 
+          {
+            "default": "1min", 
+            "description": "The number of data points to include either 1sec or 1min.", 
+            "in": "path", 
+            "name": "detail-level", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "The start of the period in the format of HH:mm.", 
+            "in": "path", 
+            "name": "start-time", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "The end time of the period in the format of HH:mm.", 
+            "in": "path", 
+            "name": "end-time", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "Successful request."
+          }, 
+          "401": {
+            "description": "The request requires user authentication."
+          }, 
+          "403": {
+            "description": "The server understood the request, but is refusing to fulfill it."
+          }
+        }, 
+        "security": [
+          {
+            "oauth2": [
+              "activity", 
+              "heartrate", 
+              "location", 
+              "nutrition", 
+              "profile", 
+              "settings", 
+              "sleep", 
+              "social", 
+              "weight"
+            ]
+          }
+        ], 
+        "summary": "Get Heart Rate Intraday Time Series", 
+        "tags": [
+          "Time Series"
+        ]
+      }
+    }, 
+    "/1/user/-/activities/heart/date/{date}/{period}.json": {
+      "get": {
+        "description": "Returns the time series data in the specified range for a given resource in the format requested using units in the unit systems that corresponds to the Accept-Language header provided.", 
+        "operationId": "intraday", 
+        "parameters": [
+          {
+            "description": "The end date of the period specified in the format yyyy-MM-dd or today.", 
+            "in": "path", 
+            "name": "date", 
+            "required": true, 
+            "type": "date"
+          }, 
+          {
+            "description": "The range of which data will be returned. Options are 1d, 7d, 30d, 1w, and 1m.", 
+            "in": "path", 
+            "name": "period", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "Successful request."
+          }, 
+          "401": {
+            "description": "The request requires user authentication."
+          }, 
+          "403": {
+            "description": "The server understood the request, but is refusing to fulfill it."
+          }
+        }, 
+        "security": [
+          {
+            "oauth2": [
+              "activity", 
+              "heartrate", 
+              "location", 
+              "nutrition", 
+              "profile", 
+              "settings", 
+              "sleep", 
+              "social", 
+              "weight"
+            ]
+          }
+        ], 
+        "summary": "Get Heart Rate Time Series", 
+        "tags": [
+          "Time Series"
+        ]
+      }
+    }, 
+    "/1/user/-/activities/list.json": {
+      "get": {
+        "description": "Retreives a list of user's activity log entries before or after a given day with offset and limit using units in the unit system which corresponds to the Accept-Language header provided.", 
+        "operationId": "activity", 
+        "parameters": [
+          {
+            "description": "The date in the format yyyy-MM-ddTHH:mm:ss. Only yyyy-MM-dd is required. Either beforeDate or afterDate should be specified.", 
+            "in": "query", 
+            "name": "beforeDate", 
+            "required": false, 
+            "type": "date"
+          }, 
+          {
+            "description": "The date in the format yyyy-MM-ddTHH:mm:ss.", 
+            "in": "query", 
+            "name": "afterDate", 
+            "required": false, 
+            "type": "date"
+          }, 
+          {
+            "description": "The sort order of entries by date asc (ascending) or desc (descending).", 
+            "in": "query", 
+            "name": "sort", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "default": "0", 
+            "description": "The offset number of entries.", 
+            "in": "query", 
+            "name": "offset", 
+            "required": true, 
+            "type": "integer"
+          }, 
+          {
+            "description": "The maximum number of entries returned (maximum;100).", 
+            "in": "query", 
+            "name": "limit", 
+            "required": true, 
+            "type": "integer"
+          }
+        ], 
+        "produces": [
+          "application/x-www-form-urlencoded"
+        ], 
+        "responses": {
+          "200": {
+            "description": "A successful request."
+          }, 
+          "400": {
+            "description": "The request had bad syntax or was inherently impossible to be satified."
+          }, 
+          "401": {
+            "description": "The request requires user authentication."
+          }, 
+          "409": {
+            "description": "Returned if the given user is already subscribed to this stream using a different subscription ID, OR if the given subscription ID is already used to identify a subscription to a different stream."
+          }
+        }, 
+        "security": [
+          {
+            "oauth2": [
+              "activity", 
+              "heartrate", 
+              "location", 
+              "nutrition", 
+              "profile", 
+              "settings", 
+              "sleep", 
+              "social", 
+              "weight"
+            ]
+          }
+        ], 
+        "summary": "Get Activity Log List", 
+        "tags": [
+          "Activity"
+        ]
+      }
+    }, 
+    "/1/user/-/activities/recent.json": {
+      "get": {
+        "description": "Retreives a list of a user's recent activities types logged with some details of the last activity log of that type using units in the unit system which corresponds to the Accept-Language header provided.", 
+        "operationId": "activity", 
+        "produces": [
+          "application/x-www-form-urlencoded"
+        ], 
+        "responses": {
+          "200": {
+            "description": "A successful request."
+          }, 
+          "400": {
+            "description": "The request had bad syntax or was inherently impossible to be satified."
+          }, 
+          "401": {
+            "description": "The request requires user authentication."
+          }, 
+          "409": {
+            "description": "Returned if the given user is already subscribed to this stream using a different subscription ID, OR if the given subscription ID is already used to identify a subscription to a different stream."
+          }
+        }, 
+        "security": [
+          {
+            "oauth2": [
+              "activity", 
+              "heartrate", 
+              "location", 
+              "nutrition", 
+              "profile", 
+              "settings", 
+              "sleep", 
+              "social", 
+              "weight"
+            ]
+          }
+        ], 
+        "summary": "Get Recent Activity Types", 
+        "tags": [
+          "Activity"
+        ]
+      }
+    }, 
+    "/1/user/-/activities/tracker/{resource-path}/date/{base-date}/{end-date}.json": {
+      "get": {
+        "description": "Returns time series data in the specified range for a given resource.", 
+        "operationId": "intraday", 
+        "parameters": [
+          {
+            "default": "steps", 
+            "description": "The resource-path; see options in the Resource Path Options section in the full documentation.", 
+            "enum": [
+              "calories", 
+              "caloriesBMR", 
+              "steps", 
+              "distance", 
+              "floors", 
+              "elevation", 
+              "minutesSedentary", 
+              "minutesLightlyActive", 
+              "minutesFairlyActive", 
+              "minutesVeryActive", 
+              "activityCalories"
+            ], 
+            "in": "path", 
+            "name": "resource-path", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "The range start date in the format yyyy-MM-dd or today.", 
+            "in": "path", 
+            "name": "base-date", 
+            "required": true, 
+            "type": "date"
+          }, 
+          {
+            "description": "The end date of the range.", 
+            "in": "path", 
+            "name": "end-date", 
+            "required": true, 
+            "type": "date"
+          }
+        ], 
+        "produces": [
+          "application/x-www-form-urlencoded"
+        ], 
+        "responses": {
+          "200": {
+            "description": "A successful request."
+          }, 
+          "400": {
+            "description": "The request had bad syntax or was inherently impossible to be satified."
+          }, 
+          "401": {
+            "description": "The request requires user authentication."
+          }, 
+          "409": {
+            "description": "Returned if the given user is already subscribed to this stream using a different subscription ID, OR if the given subscription ID is already used to identify a subscription to a different stream."
+          }
+        }, 
+        "security": [
+          {
+            "oauth2": [
+              "activity", 
+              "heartrate", 
+              "location", 
+              "nutrition", 
+              "profile", 
+              "settings", 
+              "sleep", 
+              "social", 
+              "weight"
+            ]
+          }
+        ], 
+        "summary": "Get Activity Time Series", 
+        "tags": [
+          "Time Series"
+        ]
+      }
+    }, 
+    "/1/user/-/activities/tracker/{resource-path}/date/{date}/{period}.json": {
+      "get": {
+        "description": "Returns time series data in the specified range for a given resource in the format requested using units in the unit system that corresponds to the Accept-Language header provided.", 
+        "operationId": "intraday", 
+        "parameters": [
+          {
+            "default": "steps", 
+            "description": "The resource-path; see options in the Resource Path Options section in the full documentation.", 
+            "enum": [
+              "calories", 
+              "caloriesBMR", 
+              "steps", 
+              "distance", 
+              "floors", 
+              "elevation", 
+              "minutesSedentary", 
+              "minutesLightlyActive", 
+              "minutesFairlyActive", 
+              "minutesVeryActive", 
+              "activityCalories"
+            ], 
+            "in": "path", 
+            "name": "resource-path", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "The end date of the period specified in the format yyyy-MM-dd or today.", 
+            "in": "path", 
+            "name": "date", 
+            "required": true, 
+            "type": "date"
+          }, 
+          {
+            "description": "The range for which data will be returned. Options are 1d, 7d, 30d, 1w, 1m, 3m, 6m, 1y, or max.", 
+            "in": "path", 
+            "name": "period", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [
+          "application/x-www-form-urlencoded"
+        ], 
+        "responses": {
+          "200": {
+            "description": "A successful request."
+          }, 
+          "400": {
+            "description": "The request had bad syntax or was inherently impossible to be satified."
+          }, 
+          "401": {
+            "description": "The request requires user authentication."
+          }, 
+          "409": {
+            "description": "Returned if the given user is already subscribed to this stream using a different subscription ID, OR if the given subscription ID is already used to identify a subscription to a different stream."
+          }
+        }, 
+        "security": [
+          {
+            "oauth2": [
+              "activity", 
+              "heartrate", 
+              "location", 
+              "nutrition", 
+              "profile", 
+              "settings", 
+              "sleep", 
+              "social", 
+              "weight"
+            ]
+          }
+        ], 
+        "summary": "Get Activity Time Series", 
+        "tags": [
+          "Time Series"
+        ]
+      }
+    }, 
+    "/1/user/-/activities/{activity-log-id}.json": {
+      "delete": {
+        "description": "Deletes a user's activity log entry with the given ID.", 
+        "operationId": "activity", 
+        "parameters": [
+          {
+            "description": "The id of the activity log entry.", 
+            "in": "path", 
+            "name": "activity-log-id", 
+            "required": true, 
+            "type": "integer"
+          }
+        ], 
+        "produces": [
+          "application/x-www-form-urlencoded"
+        ], 
+        "responses": {
+          "204": {
+            "description": "A successful request."
+          }, 
+          "400": {
+            "description": "The request had bad syntax or was inherently impossible to be satified."
+          }, 
+          "401": {
+            "description": "The request requires user authentication."
+          }
+        }, 
+        "security": [
+          {
+            "oauth2": [
+              "activity", 
+              "heartrate", 
+              "location", 
+              "nutrition", 
+              "profile", 
+              "settings", 
+              "sleep", 
+              "social", 
+              "weight"
+            ]
+          }
+        ], 
+        "summary": "Delete Activity Log", 
+        "tags": [
+          "Activity"
+        ]
+      }
+    }, 
+    "/1/user/-/activities/{log-id}.tcx": {
+      "get": {
+        "description": "Retreives the details of a user's location and heart rate data during a logged exercise activity.", 
+        "operationId": "activity", 
+        "parameters": [
+          {
+            "description": "The activity's log ID.", 
+            "in": "path", 
+            "name": "log-id", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "Include TCX points regardless of GPS data being present", 
+            "in": "query", 
+            "name": "includePartialTCX", 
+            "required": false, 
+            "type": "boolean"
+          }
+        ], 
+        "produces": [
+          "application/x-www-form-urlencoded"
+        ], 
+        "responses": {
+          "200": {
+            "description": "A successful request."
+          }, 
+          "400": {
+            "description": "The request had bad syntax or was inherently impossible to be satified."
+          }, 
+          "401": {
+            "description": "The request requires user authentication."
+          }, 
+          "403": {
+            "description": "The request was a valid request, but the server is refusing to respond to it."
+          }, 
+          "409": {
+            "description": "Returned if the given user is already subscribed to this stream using a different subscription ID, OR if the given subscription ID is already used to identify a subscription to a different stream."
+          }
+        }, 
+        "security": [
+          {
+            "oauth2": [
+              "activity", 
+              "heartrate", 
+              "location", 
+              "nutrition", 
+              "profile", 
+              "settings", 
+              "sleep", 
+              "social", 
+              "weight"
+            ]
+          }
+        ], 
+        "summary": "Get Activity TCX", 
+        "tags": [
+          "Activity"
+        ]
+      }
+    }, 
+    "/1/user/-/activities/{resource-path}/date/{base-date}/{end-date}.json": {
+      "get": {
+        "description": "Returns time series data in the specified range for a given resource.", 
+        "operationId": "intraday", 
+        "parameters": [
+          {
+            "default": "steps", 
+            "description": "The resource-path; see options in the Resource Path Options section in the full documentation.", 
+            "enum": [
+              "calories", 
+              "caloriesBMR", 
+              "steps", 
+              "distance", 
+              "floors", 
+              "elevation", 
+              "minutesSedentary", 
+              "minutesLightlyActive", 
+              "minutesFairlyActive", 
+              "minutesVeryActive", 
+              "activityCalories"
+            ], 
+            "in": "path", 
+            "name": "resource-path", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "The range start date in the format yyyy-MM-dd or today.", 
+            "in": "path", 
+            "name": "base-date", 
+            "required": true, 
+            "type": "date"
+          }, 
+          {
+            "description": "The end date of the range.", 
+            "in": "path", 
+            "name": "end-date", 
+            "required": true, 
+            "type": "date"
+          }
+        ], 
+        "produces": [
+          "application/x-www-form-urlencoded"
+        ], 
+        "responses": {
+          "200": {
+            "description": "A successful request."
+          }, 
+          "400": {
+            "description": "The request had bad syntax or was inherently impossible to be satified."
+          }, 
+          "401": {
+            "description": "The request requires user authentication."
+          }, 
+          "409": {
+            "description": "Returned if the given user is already subscribed to this stream using a different subscription ID, OR if the given subscription ID is already used to identify a subscription to a different stream."
+          }
+        }, 
+        "security": [
+          {
+            "oauth2": [
+              "activity", 
+              "heartrate", 
+              "location", 
+              "nutrition", 
+              "profile", 
+              "settings", 
+              "sleep", 
+              "social", 
+              "weight"
+            ]
+          }
+        ], 
+        "summary": "Get Activity Time Series", 
+        "tags": [
+          "Time Series"
+        ]
+      }
+    }, 
+    "/1/user/-/activities/{resource-path}/date/{base-date}/{end-date}/{detail-level}.json": {
+      "get": {
+        "description": "Returns the Intraday Time Series for a given resource in the format requested.", 
+        "operationId": "intraday", 
+        "parameters": [
+          {
+            "default": "steps", 
+            "description": "The resource-path; see options in the Resource Path Options section in the full documentation.", 
+            "enum": [
+              "calories", 
+              "steps", 
+              "distance", 
+              "floors", 
+              "elevation"
+            ], 
+            "in": "path", 
+            "name": "resource-path", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "The date in the format yyyy-MM-dd or today.", 
+            "in": "path", 
+            "name": "base-date", 
+            "required": true, 
+            "type": "date"
+          }, 
+          {
+            "description": "The date in the format yyyy-MM-dd or today.", 
+            "in": "path", 
+            "name": "end-date", 
+            "required": true, 
+            "type": "date"
+          }, 
+          {
+            "default": "1min", 
+            "description": "Number of data points to include. Either 1min or 15min. Optional.", 
+            "in": "path", 
+            "name": "detail-level", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [
+          "application/x-www-form-urlencoded"
+        ], 
+        "responses": {
+          "200": {
+            "description": "A successful request."
+          }, 
+          "400": {
+            "description": "The request had bad syntax or was inherently impossible to be satified."
+          }, 
+          "401": {
+            "description": "The request requires user authentication."
+          }, 
+          "409": {
+            "description": "Returned if the given user is already subscribed to this stream using a different subscription ID, OR if the given subscription ID is already used to identify a subscription to a different stream."
+          }
+        }, 
+        "security": [
+          {
+            "oauth2": [
+              "activity", 
+              "heartrate", 
+              "location", 
+              "nutrition", 
+              "profile", 
+              "settings", 
+              "sleep", 
+              "social", 
+              "weight"
+            ]
+          }
+        ], 
+        "summary": "Get Intraday Time Series", 
+        "tags": [
+          "Time Series"
+        ]
+      }
+    }, 
+    "/1/user/-/activities/{resource-path}/date/{date}/1d/{detail-level}.json": {
+      "get": {
+        "description": "Returns the Intraday Time Series for a given resource in the format requested.", 
+        "operationId": "intraday", 
+        "parameters": [
+          {
+            "default": "steps", 
+            "description": "The resource-path; see options in the Resource Path Options section in the full documentation.", 
+            "enum": [
+              "calories", 
+              "steps", 
+              "distance", 
+              "floors", 
+              "elevation"
+            ], 
+            "in": "path", 
+            "name": "resource-path", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "The date in the format yyyy-MM-dd or today.", 
+            "in": "path", 
+            "name": "date", 
+            "required": true, 
+            "type": "date"
+          }, 
+          {
+            "default": "1min", 
+            "description": "Number of data points to include. Either 1min or 15min. Optional.", 
+            "in": "path", 
+            "name": "detail-level", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [
+          "application/x-www-form-urlencoded"
+        ], 
+        "responses": {
+          "200": {
+            "description": "A successful request."
+          }, 
+          "400": {
+            "description": "The request had bad syntax or was inherently impossible to be satified."
+          }, 
+          "401": {
+            "description": "The request requires user authentication."
+          }, 
+          "409": {
+            "description": "Returned if the given user is already subscribed to this stream using a different subscription ID, OR if the given subscription ID is already used to identify a subscription to a different stream."
+          }
+        }, 
+        "security": [
+          {
+            "oauth2": [
+              "activity", 
+              "heartrate", 
+              "location", 
+              "nutrition", 
+              "profile", 
+              "settings", 
+              "sleep", 
+              "social", 
+              "weight"
+            ]
+          }
+        ], 
+        "summary": "Get Intraday Time Series", 
+        "tags": [
+          "Time Series"
+        ]
+      }
+    }, 
+    "/1/user/-/activities/{resource-path}/date/{date}/1d/{detail-level}/time/{start-time}/{end-time}.json": {
+      "get": {
+        "description": "Returns the Intraday Time Series for a given resource in the format requested.", 
+        "operationId": "intraday", 
+        "parameters": [
+          {
+            "default": "steps", 
+            "description": "The resource-path; see options in the Resource Path Options section in the full documentation.", 
+            "enum": [
+              "calories", 
+              "steps", 
+              "distance", 
+              "floors", 
+              "elevation"
+            ], 
+            "in": "path", 
+            "name": "resource-path", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "The date in the format yyyy-MM-dd or today.", 
+            "in": "path", 
+            "name": "date", 
+            "required": true, 
+            "type": "date"
+          }, 
+          {
+            "default": "1min", 
+            "description": "Number of data points to include. Either 1min or 15min.", 
+            "in": "path", 
+            "name": "detail-level", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "The start of the period in the format HH:mm.", 
+            "in": "path", 
+            "name": "start-time", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "The end of the period in the format HH:mm.", 
+            "in": "path", 
+            "name": "end-time", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [
+          "application/x-www-form-urlencoded"
+        ], 
+        "responses": {
+          "200": {
+            "description": "A successful request."
+          }, 
+          "400": {
+            "description": "The request had bad syntax or was inherently impossible to be satified."
+          }, 
+          "401": {
+            "description": "The request requires user authentication."
+          }, 
+          "409": {
+            "description": "Returned if the given user is already subscribed to this stream using a different subscription ID, OR if the given subscription ID is already used to identify a subscription to a different stream."
+          }
+        }, 
+        "security": [
+          {
+            "oauth2": [
+              "activity", 
+              "heartrate", 
+              "location", 
+              "nutrition", 
+              "profile", 
+              "settings", 
+              "sleep", 
+              "social", 
+              "weight"
+            ]
+          }
+        ], 
+        "summary": "Get Intraday Time Series", 
+        "tags": [
+          "Time Series"
+        ]
+      }
+    }, 
+    "/1/user/-/activities/{resource-path}/date/{date}/{end-date}/{detail-level}/time/{start-time}/{end-time}.json": {
+      "get": {
+        "description": "Returns the Intraday Time Series for a given resource in the format requested.", 
+        "operationId": "intraday", 
+        "parameters": [
+          {
+            "default": "steps", 
+            "description": "The resource-path; see options in the Resource Path Options section in the full documentation.", 
+            "enum": [
+              "calories", 
+              "steps", 
+              "distance", 
+              "floors", 
+              "elevation"
+            ], 
+            "in": "path", 
+            "name": "resource-path", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "The date in the format yyyy-MM-dd or today.", 
+            "in": "path", 
+            "name": "date", 
+            "required": true, 
+            "type": "date"
+          }, 
+          {
+            "description": "The date in the format yyyy-MM-dd or today.", 
+            "in": "path", 
+            "name": "end-date", 
+            "required": true, 
+            "type": "date"
+          }, 
+          {
+            "default": "1min", 
+            "description": "Number of data points to include. Either 1min or 15min.", 
+            "in": "path", 
+            "name": "detail-level", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "The start of the period in the format HH:mm.", 
+            "in": "path", 
+            "name": "start-time", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "The end of the period in the format HH:mm.", 
+            "in": "path", 
+            "name": "end-time", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [
+          "application/x-www-form-urlencoded"
+        ], 
+        "responses": {
+          "200": {
+            "description": "A successful request."
+          }, 
+          "400": {
+            "description": "The request had bad syntax or was inherently impossible to be satified."
+          }, 
+          "401": {
+            "description": "The request requires user authentication."
+          }, 
+          "409": {
+            "description": "Returned if the given user is already subscribed to this stream using a different subscription ID, OR if the given subscription ID is already used to identify a subscription to a different stream."
+          }
+        }, 
+        "security": [
+          {
+            "oauth2": [
+              "activity", 
+              "heartrate", 
+              "location", 
+              "nutrition", 
+              "profile", 
+              "settings", 
+              "sleep", 
+              "social", 
+              "weight"
+            ]
+          }
+        ], 
+        "summary": "Get Intraday Time Series", 
+        "tags": [
+          "Time Series"
+        ]
+      }
+    }, 
+    "/1/user/-/activities/{resource-path}/date/{date}/{period}.json": {
+      "get": {
+        "description": "Returns time series data in the specified range for a given resource in the format requested using units in the unit system that corresponds to the Accept-Language header provided.", 
+        "operationId": "intraday", 
+        "parameters": [
+          {
+            "default": "steps", 
+            "description": "The resource-path; see options in the Resource Path Options section in the full documentation.", 
+            "enum": [
+              "calories", 
+              "caloriesBMR", 
+              "steps", 
+              "distance", 
+              "floors", 
+              "elevation", 
+              "minutesSedentary", 
+              "minutesLightlyActive", 
+              "minutesFairlyActive", 
+              "minutesVeryActive", 
+              "activityCalories"
+            ], 
+            "in": "path", 
+            "name": "resource-path", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "The end date of the period specified in the format yyyy-MM-dd or today.", 
+            "in": "path", 
+            "name": "date", 
+            "required": true, 
+            "type": "date"
+          }, 
+          {
+            "description": "The range for which data will be returned. Options are 1d, 7d, 30d, 1w, 1m, 3m, 6m, 1y, or max.", 
+            "in": "path", 
+            "name": "period", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [
+          "application/x-www-form-urlencoded"
+        ], 
+        "responses": {
+          "200": {
+            "description": "A successful request."
+          }, 
+          "400": {
+            "description": "The request had bad syntax or was inherently impossible to be satified."
+          }, 
+          "401": {
+            "description": "The request requires user authentication."
+          }, 
+          "409": {
+            "description": "Returned if the given user is already subscribed to this stream using a different subscription ID, OR if the given subscription ID is already used to identify a subscription to a different stream."
+          }
+        }, 
+        "security": [
+          {
+            "oauth2": [
+              "activity", 
+              "heartrate", 
+              "location", 
+              "nutrition", 
+              "profile", 
+              "settings", 
+              "sleep", 
+              "social", 
+              "weight"
+            ]
+          }
+        ], 
+        "summary": "Get Activity Time Series", 
+        "tags": [
+          "Time Series"
+        ]
+      }
+    }, 
+    "/1/user/-/badges.json": {
+      "get": {
+        "description": "Retrieves the user's badges in the format requested. Response includes all badges for the user as seen on the Fitbit website badge locker (both activity and weight related.) The endpoint returns weight and distance badges based on the user's unit profile preference as on the website.", 
+        "operationId": "badges", 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "A successful request."
+          }, 
+          "201": {
+            "description": "Returned if a new subscription was created in response to your request."
+          }, 
+          "409": {
+            "description": "Returned if the given user is already subscribed to this stream using a different subscription ID, OR if the given subscription ID is already used to identify a subscription to a different stream."
+          }
+        }, 
+        "security": [
+          {
+            "oauth2": [
+              "activity", 
+              "heartrate", 
+              "location", 
+              "nutrition", 
+              "profile", 
+              "settings", 
+              "sleep", 
+              "social", 
+              "weight"
+            ]
+          }
+        ], 
+        "summary": "Get Badges", 
+        "tags": [
+          "User"
+        ]
+      }
+    }, 
+    "/1/user/-/body/log/fat.json": {
+      "post": {
+        "description": "Creates a log entry for body fat and returns a response in the format requested.", 
+        "operationId": "weight", 
+        "parameters": [
+          {
+            "description": "Body fat in the format of X.XX in the unit system that corresponds to the Accept-Language header provided.", 
+            "in": "query", 
+            "name": "fat", 
+            "required": true, 
+            "type": "integer"
+          }, 
+          {
+            "description": "Log entry date in the format yyyy-MM-dd.", 
+            "in": "query", 
+            "name": "date", 
+            "required": true, 
+            "type": "date"
+          }, 
+          {
+            "description": "Time of the measurement in hours and minutes in the format HH:mm:ss that is set to the last second of the day if not provided.", 
+            "in": "query", 
+            "name": "time", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "A successful request."
+          }, 
+          "201": {
+            "description": "The request has been fulfilled and resulted in a new resouce being created."
+          }, 
+          "400": {
+            "description": "The request had bad syntax or was inherently impossible to be satified."
+          }, 
+          "401": {
+            "description": "The request requires user authentication."
+          }
+        }, 
+        "security": [
+          {
+            "oauth2": [
+              "activity", 
+              "heartrate", 
+              "location", 
+              "nutrition", 
+              "profile", 
+              "settings", 
+              "sleep", 
+              "social", 
+              "weight"
+            ]
+          }
+        ], 
+        "summary": "Log Body Fat", 
+        "tags": [
+          "Body and Weight"
+        ]
+      }
+    }, 
+    "/1/user/-/body/log/fat/date/{base-date}/{end-date}.json": {
+      "get": {
+        "description": "Retreives a list of all user's body fat log entries for a given day in the format requested.", 
+        "operationId": "weight", 
+        "parameters": [
+          {
+            "description": "The range start date in the format yyyy-MM-dd or today.", 
+            "in": "path", 
+            "name": "base-date", 
+            "required": true, 
+            "type": "date"
+          }, 
+          {
+            "description": "The end date of the range.", 
+            "in": "path", 
+            "name": "end-date", 
+            "required": true, 
+            "type": "date"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "A successful request."
+          }, 
+          "400": {
+            "description": "The request had bad syntax or was inherently impossible to be satified."
+          }, 
+          "401": {
+            "description": "The request requires user authentication."
+          }
+        }, 
+        "security": [
+          {
+            "oauth2": [
+              "activity", 
+              "heartrate", 
+              "location", 
+              "nutrition", 
+              "profile", 
+              "settings", 
+              "sleep", 
+              "social", 
+              "weight"
+            ]
+          }
+        ], 
+        "summary": "Get Body Fat Logs", 
+        "tags": [
+          "Body and Weight"
+        ]
+      }
+    }, 
+    "/1/user/-/body/log/fat/date/{date}.json": {
+      "get": {
+        "description": "Retreives a list of all user's body fat log entries for a given day in the format requested.", 
+        "operationId": "weight", 
+        "parameters": [
+          {
+            "description": "The date in the format yyyy-MM-dd.", 
+            "in": "path", 
+            "name": "date", 
+            "required": true, 
+            "type": "date"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "A successful request."
+          }, 
+          "400": {
+            "description": "The request had bad syntax or was inherently impossible to be satified."
+          }, 
+          "401": {
+            "description": "The request requires user authentication."
+          }
+        }, 
+        "security": [
+          {
+            "oauth2": [
+              "activity", 
+              "heartrate", 
+              "location", 
+              "nutrition", 
+              "profile", 
+              "settings", 
+              "sleep", 
+              "social", 
+              "weight"
+            ]
+          }
+        ], 
+        "summary": "Get Body Fat Logs", 
+        "tags": [
+          "Body and Weight"
+        ]
+      }
+    }, 
+    "/1/user/-/body/log/fat/date/{date}/{period}.json": {
+      "get": {
+        "description": "Retreives a list of all user's body fat log entries for a given day in the format requested.", 
+        "operationId": "weight", 
+        "parameters": [
+          {
+            "description": "The date in the format yyyy-MM-dd.", 
+            "in": "path", 
+            "name": "date", 
+            "required": true, 
+            "type": "date"
+          }, 
+          {
+            "description": "The range for which data will be returned. Options are 1d, 7d, 30d, 1w, 1m, 3m, 6m, 1y, or max.", 
+            "in": "path", 
+            "name": "period", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "A successful request."
+          }, 
+          "400": {
+            "description": "The request had bad syntax or was inherently impossible to be satified."
+          }, 
+          "401": {
+            "description": "The request requires user authentication."
+          }
+        }, 
+        "security": [
+          {
+            "oauth2": [
+              "activity", 
+              "heartrate", 
+              "location", 
+              "nutrition", 
+              "profile", 
+              "settings", 
+              "sleep", 
+              "social", 
+              "weight"
+            ]
+          }
+        ], 
+        "summary": "Get Body Fat Logs", 
+        "tags": [
+          "Body and Weight"
+        ]
+      }
+    }, 
+    "/1/user/-/body/log/fat/goal.json": {
+      "post": {
+        "description": "Updates user's fat percentage goal.", 
+        "operationId": "weight", 
+        "parameters": [
+          {
+            "description": "Target body fat percentage; in the format X.XX.", 
+            "in": "query", 
+            "name": "fat", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "A successful request."
+          }, 
+          "201": {
+            "description": "The request has been fulfilled and resulted in a new resouce being created."
+          }, 
+          "400": {
+            "description": "The request had bad syntax or was inherently impossible to be satified."
+          }, 
+          "401": {
+            "description": "The request requires user authentication."
+          }
+        }, 
+        "security": [
+          {
+            "oauth2": [
+              "activity", 
+              "heartrate", 
+              "location", 
+              "nutrition", 
+              "profile", 
+              "settings", 
+              "sleep", 
+              "social", 
+              "weight"
+            ]
+          }
+        ], 
+        "summary": "Update Body Fat Goal", 
+        "tags": [
+          "Body and Weight"
+        ]
+      }
+    }, 
+    "/1/user/-/body/log/fat/{body-fat-log-id}.json": {
+      "delete": {
+        "description": "Deletes a user's body fat log entry with the given ID.", 
+        "operationId": "weight", 
+        "parameters": [
+          {
+            "description": "The ID of the body fat log entry.", 
+            "in": "path", 
+            "name": "body-fat-log-id", 
+            "required": true, 
+            "type": "integer"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "A successful request."
+          }, 
+          "204": {
+            "description": "The server successfully processed the request, but is not returning any content."
+          }, 
+          "400": {
+            "description": "The request had bad syntax or was inherently impossible to be satified."
+          }, 
+          "401": {
+            "description": "The request requires user authentication."
+          }
+        }, 
+        "security": [
+          {
+            "oauth2": [
+              "activity", 
+              "heartrate", 
+              "location", 
+              "nutrition", 
+              "profile", 
+              "settings", 
+              "sleep", 
+              "social", 
+              "weight"
+            ]
+          }
+        ], 
+        "summary": "Delete Body Fat Log", 
+        "tags": [
+          "Body and Weight"
+        ]
+      }
+    }, 
+    "/1/user/-/body/log/weight.json": {
+      "post": {
+        "description": "Creates log entry for a body weight using units in the unit systems that corresponds to the Accept-Language header provided and gets a response in the format requested.", 
+        "operationId": "weight", 
+        "parameters": [
+          {
+            "description": "Weight in the format of X.XX.", 
+            "in": "query", 
+            "name": "weight", 
+            "required": true, 
+            "type": "integer"
+          }, 
+          {
+            "description": "Log entry date in the format yyyy-MM-dd.", 
+            "in": "query", 
+            "name": "date", 
+            "required": true, 
+            "type": "date"
+          }, 
+          {
+            "description": "Time of the measurement; hours and minutes in the format of HH:mm:ss, which is set to the last second of the day if not provided.", 
+            "in": "query", 
+            "name": "time", 
+            "required": false, 
+            "type": "string"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "A successful request."
+          }, 
+          "201": {
+            "description": "The request has been fulfilled and resulted in a new resouce being created."
+          }, 
+          "400": {
+            "description": "The request had bad syntax or was inherently impossible to be satified."
+          }, 
+          "401": {
+            "description": "The request requires user authentication."
+          }
+        }, 
+        "security": [
+          {
+            "oauth2": [
+              "activity", 
+              "heartrate", 
+              "location", 
+              "nutrition", 
+              "profile", 
+              "settings", 
+              "sleep", 
+              "social", 
+              "weight"
+            ]
+          }
+        ], 
+        "summary": "Log Weight", 
+        "tags": [
+          "Body and Weight"
+        ]
+      }
+    }, 
+    "/1/user/-/body/log/weight/date/{base-date}/{end-date}.json": {
+      "get": {
+        "description": "Retreives a list of all user's body fat log entries for a given day in the format requested.", 
+        "operationId": "weight", 
+        "parameters": [
+          {
+            "description": "The range start date in the format yyyy-MM-dd or today.", 
+            "in": "path", 
+            "name": "base-date", 
+            "required": true, 
+            "type": "date"
+          }, 
+          {
+            "description": "The end date of the range.", 
+            "in": "path", 
+            "name": "end-date", 
+            "required": true, 
+            "type": "date"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "A successful request."
+          }, 
+          "400": {
+            "description": "The request had bad syntax or was inherently impossible to be satified."
+          }, 
+          "401": {
+            "description": "The request requires user authentication."
+          }
+        }, 
+        "security": [
+          {
+            "oauth2": [
+              "activity", 
+              "heartrate", 
+              "location", 
+              "nutrition", 
+              "profile", 
+              "settings", 
+              "sleep", 
+              "social", 
+              "weight"
+            ]
+          }
+        ], 
+        "summary": "Get Body Fat Logs", 
+        "tags": [
+          "Body and Weight"
+        ]
+      }
+    }, 
+    "/1/user/-/body/log/weight/date/{date}.json": {
+      "get": {
+        "description": "Retreives a list of all user's body weight log entries for a given day using units in the unit systems which corresponds to the Accept-Language header provided.", 
+        "operationId": "weight", 
+        "parameters": [
+          {
+            "description": "The date in the format yyyy-MM-dd.", 
+            "in": "path", 
+            "name": "date", 
+            "required": true, 
+            "type": "date"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "A successful request."
+          }, 
+          "400": {
+            "description": "The request had bad syntax or was inherently impossible to be satified."
+          }, 
+          "401": {
+            "description": "The request requires user authentication."
+          }
+        }, 
+        "security": [
+          {
+            "oauth2": [
+              "activity", 
+              "heartrate", 
+              "location", 
+              "nutrition", 
+              "profile", 
+              "settings", 
+              "sleep", 
+              "social", 
+              "weight"
+            ]
+          }
+        ], 
+        "summary": "Get Weight Logs", 
+        "tags": [
+          "Body and Weight"
+        ]
+      }
+    }, 
+    "/1/user/-/body/log/weight/date/{date}/{period}.json": {
+      "get": {
+        "description": "Retreives a list of all user's body weight log entries for a given day in the format requested.", 
+        "operationId": "weight", 
+        "parameters": [
+          {
+            "description": "The date in the format yyyy-MM-dd.", 
+            "in": "path", 
+            "name": "date", 
+            "required": true, 
+            "type": "date"
+          }, 
+          {
+            "description": "The range for which data will be returned. Options are 1d, 7d, 30d, 1w, 1m, 3m, 6m, 1y, or max.", 
+            "in": "path", 
+            "name": "period", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "A successful request."
+          }, 
+          "400": {
+            "description": "The request had bad syntax or was inherently impossible to be satified."
+          }, 
+          "401": {
+            "description": "The request requires user authentication."
+          }
+        }, 
+        "security": [
+          {
+            "oauth2": [
+              "activity", 
+              "heartrate", 
+              "location", 
+              "nutrition", 
+              "profile", 
+              "settings", 
+              "sleep", 
+              "social", 
+              "weight"
+            ]
+          }
+        ], 
+        "summary": "Get Body Fat Logs", 
+        "tags": [
+          "Body and Weight"
+        ]
+      }
+    }, 
+    "/1/user/-/body/log/weight/goal.json": {
+      "post": {
+        "description": "Updates user's fat percentage goal.", 
+        "operationId": "weight", 
+        "parameters": [
+          {
+            "description": "Weight goal start date; in the format yyyy-MM-dd.", 
+            "in": "query", 
+            "name": "startDate", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "Weight goal start weight; in the format X.XX, in the unit systems that corresponds to the Accept-Language header provided.", 
+            "in": "query", 
+            "name": "startWeight", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "Weight goal target weight; in the format X.XX, in the unit systems that corresponds to the Accept-Language header provided; required if user doesn't have an existing weight goal.", 
+            "in": "query", 
+            "name": "weight", 
+            "required": false, 
+            "type": "string"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "A successful request."
+          }, 
+          "201": {
+            "description": "The request has been fulfilled and resulted in a new resouce being created."
+          }, 
+          "400": {
+            "description": "The request had bad syntax or was inherently impossible to be satified."
+          }, 
+          "401": {
+            "description": "The request requires user authentication."
+          }
+        }, 
+        "security": [
+          {
+            "oauth2": [
+              "profile", 
+              "heartrate", 
+              "location"
+            ]
+          }
+        ], 
+        "summary": "Update Weight Goal", 
+        "tags": [
+          "Body and Weight"
+        ]
+      }
+    }, 
+    "/1/user/-/body/log/weight/{body-weight-log-id}.json": {
+      "delete": {
+        "description": "Deletes a user's body weight log entrywith the given ID.", 
+        "operationId": "weight", 
+        "parameters": [
+          {
+            "description": "The ID of the body weight log entry.", 
+            "in": "path", 
+            "name": "body-weight-log-id", 
+            "required": true, 
+            "type": "integer"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "A successful request."
+          }, 
+          "204": {
+            "description": "The server successfully processed the request, but is not returning any content."
+          }, 
+          "400": {
+            "description": "The request had bad syntax or was inherently impossible to be satified."
+          }, 
+          "401": {
+            "description": "The request requires user authentication."
+          }
+        }, 
+        "security": [
+          {
+            "oauth2": [
+              "activity", 
+              "heartrate", 
+              "location", 
+              "nutrition", 
+              "profile", 
+              "settings", 
+              "sleep", 
+              "social", 
+              "weight"
+            ]
+          }
+        ], 
+        "summary": "Delete Weight Log", 
+        "tags": [
+          "Body and Weight"
+        ]
+      }
+    }, 
+    "/1/user/-/body/log/{goal-type}/goal.json": {
+      "get": {
+        "description": "Retreives a user's current body fat percentage or weight goal using units in the unit systems that corresponds to the Accept-Language header providedin the format requested.", 
+        "operationId": "weight", 
+        "parameters": [
+          {
+            "description": "weight or fat.", 
+            "in": "path", 
+            "name": "goal-type", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "A successful request."
+          }, 
+          "400": {
+            "description": "The request had bad syntax or was inherently impossible to be satified."
+          }, 
+          "401": {
+            "description": "The request requires user authentication."
+          }
+        }, 
+        "security": [
+          {
+            "oauth2": [
+              "activity", 
+              "heartrate", 
+              "location", 
+              "nutrition", 
+              "profile", 
+              "settings", 
+              "sleep", 
+              "social", 
+              "weight"
+            ]
+          }
+        ], 
+        "summary": "Get Body Goals", 
+        "tags": [
+          "Body and Weight"
+        ]
+      }
+    }, 
+    "/1/user/-/body/{resource-path}/date/{base-date}/{end-date}.json": {
+      "get": {
+        "description": "Returns time series data in the specified range for a given resource in the format requested using units in the unit system that corresponds to the Accept-Language header provided.", 
+        "operationId": "", 
+        "parameters": [
+          {
+            "default": "weight", 
+            "description": "The resource path, which incudes the bmi, fat, or weight options.", 
+            "enum": [
+              "bmi", 
+              "fat", 
+              "weight"
+            ], 
+            "in": "path", 
+            "name": "resource-path", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "The range start date in the format yyyy-MM-dd or today.", 
+            "in": "path", 
+            "name": "base-date", 
+            "required": true, 
+            "type": "date"
+          }, 
+          {
+            "description": "The end date of the range.", 
+            "in": "path", 
+            "name": "end-date", 
+            "required": true, 
+            "type": "date"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "A successful request."
+          }, 
+          "400": {
+            "description": "The request had bad syntax or was inherently impossible to be satified."
+          }, 
+          "401": {
+            "description": "The request requires user authentication."
+          }
+        }, 
+        "security": [
+          {
+            "oauth2": [
+              "activity", 
+              "heartrate", 
+              "location", 
+              "nutrition", 
+              "profile", 
+              "settings", 
+              "sleep", 
+              "social", 
+              "weight"
+            ]
+          }
+        ], 
+        "summary": "Get Body Time Series", 
+        "tags": [
+          "Time Series"
+        ]
+      }
+    }, 
+    "/1/user/-/body/{resource-path}/date/{date}/{period}.json": {
+      "get": {
+        "description": "Returns time series data in the specified range for a given resource in the format requested using units in the unit system that corresponds to the Accept-Language header provided.", 
+        "operationId": "intraday", 
+        "parameters": [
+          {
+            "default": "weight", 
+            "description": "The resource path, which incudes the bmi, fat, or weight options.", 
+            "enum": [
+              "bmi", 
+              "fat", 
+              "weight"
+            ], 
+            "in": "path", 
+            "name": "resource-path", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "The range start date in the format yyyy-MM-dd or today.", 
+            "in": "path", 
+            "name": "date", 
+            "required": true, 
+            "type": "date"
+          }, 
+          {
+            "description": "The range for which data will be returned. Options are 1d, 7d, 30d, 1w, 1m, 3m, 6m, 1y, or max.", 
+            "in": "path", 
+            "name": "period", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "A successful request."
+          }, 
+          "400": {
+            "description": "The request had bad syntax or was inherently impossible to be satified."
+          }, 
+          "401": {
+            "description": "The request requires user authentication."
+          }
+        }, 
+        "security": [
+          {
+            "oauth2": [
+              "activity", 
+              "heartrate", 
+              "location", 
+              "nutrition", 
+              "profile", 
+              "settings", 
+              "sleep", 
+              "social", 
+              "weight"
+            ]
+          }
+        ], 
+        "summary": "Get Body Time Series", 
+        "tags": [
+          "Time Series"
+        ]
+      }
+    }, 
+    "/1/user/-/devices.json": {
+      "get": {
+        "description": "Returns a list of the Fitbit devices connected to a user's account.", 
+        "operationId": "devices", 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "A successful request."
+          }, 
+          "400": {
+            "description": "The request had bad syntax or was inherently impossible to be satified."
+          }, 
+          "401": {
+            "description": "The request requires user authentication."
+          }
+        }, 
+        "security": [
+          {
+            "oauth2": [
+              "activity", 
+              "heartrate", 
+              "location", 
+              "nutrition", 
+              "profile", 
+              "settings", 
+              "sleep", 
+              "social", 
+              "weight"
+            ]
+          }
+        ], 
+        "summary": "Get Devices", 
+        "tags": [
+          "Devices"
+        ]
+      }
+    }, 
+    "/1/user/-/devices/tracker/{tracker-id}/alarms.json": {
+      "get": {
+        "description": "Returns alarms for a device", 
+        "operationId": "alarms", 
+        "parameters": [
+          {
+            "description": "The ID of the tracker for which data is returned. The tracker-id value is found via the Get Devices endpoint.", 
+            "in": "path", 
+            "name": "tracker-id", 
+            "required": true, 
+            "type": "integer"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "A successful request."
+          }, 
+          "400": {
+            "description": "The request had bad syntax or was inherently impossible to be satified."
+          }, 
+          "401": {
+            "description": "The request requires user authentication."
+          }
+        }, 
+        "security": [
+          {
+            "oauth2": [
+              "activity", 
+              "heartrate", 
+              "location", 
+              "nutrition", 
+              "profile", 
+              "settings", 
+              "sleep", 
+              "social", 
+              "weight"
+            ]
+          }
+        ], 
+        "summary": "Get Alarms", 
+        "tags": [
+          "Devices"
+        ]
+      }, 
+      "post": {
+        "description": "Adds the alarm settings to a given ID for a given device.", 
+        "operationId": "alarms", 
+        "parameters": [
+          {
+            "description": "The ID of the tracker for which data is returned. The tracker-id value is found via the Get Devices endpoint.", 
+            "in": "path", 
+            "name": "tracker-id", 
+            "required": true, 
+            "type": "integer"
+          }, 
+          {
+            "description": "Time of day that the alarm vibrates with a UTC timezone offset, e.g. 07:15-08:00.", 
+            "in": "query", 
+            "name": "time", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "true or false. If false, alarm does not vibrate until enabled is set to true.", 
+            "in": "query", 
+            "name": "enabled", 
+            "required": true, 
+            "type": "boolean"
+          }, 
+          {
+            "description": "true or false. If false, the alarm is a single event.", 
+            "in": "query", 
+            "name": "recurring", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "Comma separated list of days of the week on which the alarm vibrates, e.g. MONDAY, TUESDAY.", 
+            "in": "query", 
+            "name": "weekDays", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "A successful request."
+          }, 
+          "201": {
+            "description": "The request has been fulfilled and resulted in a new resouce being created."
+          }, 
+          "400": {
+            "description": "The request had bad syntax or was inherently impossible to be satified."
+          }, 
+          "401": {
+            "description": "The request requires user authentication."
+          }
+        }, 
+        "security": [
+          {
+            "oauth2": [
+              "activity", 
+              "heartrate", 
+              "location", 
+              "nutrition", 
+              "profile", 
+              "settings", 
+              "sleep", 
+              "social", 
+              "weight"
+            ]
+          }
+        ], 
+        "summary": "Add Alarm", 
+        "tags": [
+          "Devices"
+        ]
+      }
+    }, 
+    "/1/user/-/devices/tracker/{tracker-id}/alarms/{alarm-id}.json": {
+      "delete": {
+        "description": "Deletes the user's device alarm entry with the given ID for a given device.", 
+        "operationId": "alarms", 
+        "parameters": [
+          {
+            "description": "The ID of the tracker whose alarms is managed. The tracker-id value is found via the Get Devices endpoint.", 
+            "in": "path", 
+            "name": "tracker-id", 
+            "required": true, 
+            "type": "integer"
+          }, 
+          {
+            "description": "The ID of the alarm to be updated. The alarm-id value is found via the Get Alarms endpoint.", 
+            "in": "path", 
+            "name": "alarm-id", 
+            "required": true, 
+            "type": "integer"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "A successful request."
+          }, 
+          "400": {
+            "description": "The request had bad syntax or was inherently impossible to be satified."
+          }, 
+          "401": {
+            "description": "The request requires user authentication."
+          }
+        }, 
+        "security": [
+          {
+            "oauth2": [
+              "activity", 
+              "heartrate", 
+              "location", 
+              "nutrition", 
+              "profile", 
+              "settings", 
+              "sleep", 
+              "social", 
+              "weight"
+            ]
+          }
+        ], 
+        "summary": "Delete Alarm", 
+        "tags": [
+          "Devices"
+        ]
+      }, 
+      "post": {
+        "description": "Updates the alarm entry with a given ID for a given device. It also gets a response in the format requested.", 
+        "operationId": "alarms", 
+        "parameters": [
+          {
+            "description": "The ID of the tracker for which data is returned. The tracker-id value is found via the Get Devices endpoint.", 
+            "in": "path", 
+            "name": "tracker-id", 
+            "required": true, 
+            "type": "integer"
+          }, 
+          {
+            "description": "The ID of the alarm to be updated. The alarm-id value is found in the response of the Get Activity endpoint.", 
+            "in": "path", 
+            "name": "alarm-id", 
+            "required": true, 
+            "type": "integer"
+          }, 
+          {
+            "description": "Time of day that the alarm vibrates with a UTC timezone offset, e.g. 07:15-08:00.", 
+            "in": "query", 
+            "name": "time", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "true or false. If false, the alarm does not vibrate until enabled is set to true.", 
+            "in": "query", 
+            "name": "enabled", 
+            "required": true, 
+            "type": "boolean"
+          }, 
+          {
+            "description": "true or false. If false, the alarm is a single event.", 
+            "in": "query", 
+            "name": "recurring", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "Comma seperated list of days of the week on which the alarm vibrates, e.g. MONDAY, TUESDAY.", 
+            "in": "query", 
+            "name": "weekDays", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "Minutes between alarms.", 
+            "in": "query", 
+            "name": "snoozeLength", 
+            "required": true, 
+            "type": "integer"
+          }, 
+          {
+            "description": "Maximum snooze count.", 
+            "in": "query", 
+            "name": "snoozeCount", 
+            "required": true, 
+            "type": "integer"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "A successful request."
+          }, 
+          "201": {
+            "description": "The request has been fulfilled and resulted in a new resouce being created."
+          }, 
+          "400": {
+            "description": "The request had bad syntax or was inherently impossible to be satified."
+          }, 
+          "401": {
+            "description": "The request requires user authentication."
+          }
+        }, 
+        "security": [
+          {
+            "oauth2": [
+              "activity", 
+              "heartrate", 
+              "location", 
+              "nutrition", 
+              "profile", 
+              "settings", 
+              "sleep", 
+              "social", 
+              "weight"
+            ]
+          }
+        ], 
+        "summary": "Update Alarm", 
+        "tags": [
+          "Devices"
+        ]
+      }
+    }, 
+    "/1/user/-/foods.json": {
+      "post": {
+        "description": "Creates a new private food for a user and returns a response in the format requested. The created food is found via the Search Foods call.", 
+        "operationId": "food", 
+        "parameters": [
+          {
+            "description": "The food name.", 
+            "in": "query", 
+            "name": "name", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "The ID of the default measurement unit. Full list of units can be retrieved via the Get Food Units endpoint.", 
+            "in": "query", 
+            "name": "defaultFoodMeasurementUnitId", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "The size of the default serving. Nutrition values should be provided for this serving size.", 
+            "in": "query", 
+            "name": "defaultServingSize", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "The calories in the default serving size.", 
+            "in": "query", 
+            "name": "calories", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "Form type; LIQUID or DRY.", 
+            "in": "query", 
+            "name": "formType", 
+            "required": false, 
+            "type": "string"
+          }, 
+          {
+            "description": "The description of the food.", 
+            "in": "query", 
+            "name": "description", 
+            "required": false, 
+            "type": "string"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "201": {
+            "description": "The request has been fulfilled and resulted in a new resource being created."
+          }, 
+          "400": {
+            "description": "The request had bad syntax or was inherently impossible to be satified."
+          }, 
+          "401": {
+            "description": "The request requires user authentication."
+          }, 
+          "403": {
+            "description": "The server understood the request, but is refusing to fulfill it."
+          }
+        }, 
+        "security": [
+          {
+            "oauth2": [
+              "activity", 
+              "heartrate", 
+              "location", 
+              "nutrition", 
+              "profile", 
+              "settings", 
+              "sleep", 
+              "social", 
+              "weight"
+            ]
+          }
+        ], 
+        "summary": "Create Food", 
+        "tags": [
+          "Food Logging"
+        ]
+      }
+    }, 
+    "/1/user/-/foods/log.json": {
+      "post": {
+        "description": "Creates food log entries for users with or without foodId value.", 
+        "operationId": "food", 
+        "parameters": [
+          {
+            "description": "The ID of the food to be logged. Either foodId or foodName must be provided.", 
+            "in": "query", 
+            "name": "foodId", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "Food entry name. Either foodId or foodName must be provided.", 
+            "in": "query", 
+            "name": "foodName", 
+            "required": false, 
+            "type": "string"
+          }, 
+          {
+            "description": "Meal types. 1=Breakfast; 2=Morning Snack; 3=Lunch; 4=Afternoon Snack; 5=Dinner; 7=Anytime.", 
+            "in": "query", 
+            "name": "mealTypeId", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "The ID of units used. Typically retrieved via a previous call to Get Food Logs, Search Foods, or Get Food Units.", 
+            "in": "query", 
+            "name": "unitId", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "The amount consumed in the format X.XX in the specified unitId.", 
+            "in": "query", 
+            "name": "amount", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "Log entry date in the format yyyy-MM-dd.", 
+            "in": "query", 
+            "name": "date", 
+            "required": true, 
+            "type": "date"
+          }, 
+          {
+            "description": "The `true` value will add the food to the user's favorites after creating the log entry; while the `false` value will not. Valid only with foodId value.", 
+            "in": "query", 
+            "name": "favorite", 
+            "required": false, 
+            "type": "boolean"
+          }, 
+          {
+            "description": "Brand name of food. Valid only with foodName parameters.", 
+            "in": "query", 
+            "name": "brandName", 
+            "required": false, 
+            "type": "string"
+          }, 
+          {
+            "description": "Calories for this serving size. This is allowed with foodName parameter (default to zero); otherwise it is ignored.", 
+            "in": "query", 
+            "name": "calories", 
+            "required": false, 
+            "type": "integer"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "201": {
+            "description": "The request has been fulfilled and resulted in a new resource being created."
+          }, 
+          "400": {
+            "description": "The request had bad syntax or was inherently impossible to be satified."
+          }, 
+          "401": {
+            "description": "The request requires user authentication."
+          }, 
+          "403": {
+            "description": "The server understood the request, but is refusing to fulfill it."
+          }
+        }, 
+        "security": [
+          {
+            "oauth2": [
+              "activity", 
+              "heartrate", 
+              "location", 
+              "nutrition", 
+              "profile", 
+              "settings", 
+              "sleep", 
+              "social", 
+              "weight"
+            ]
+          }
+        ], 
+        "summary": "Log Food", 
+        "tags": [
+          "Food Logging"
+        ]
+      }
+    }, 
+    "/1/user/-/foods/log/date/{date}.json": {
+      "get": {
+        "description": "Retreives a summary and list of a user's food log entries for a given day in the format requested.", 
+        "operationId": "food", 
+        "parameters": [
+          {
+            "description": "The date of records to be returned. In the format yyyy-MM-dd.", 
+            "in": "path", 
+            "name": "date", 
+            "required": true, 
+            "type": "date"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "A successful request."
+          }, 
+          "400": {
+            "description": "The request had bad syntax or was inherently impossible to be satified."
+          }, 
+          "401": {
+            "description": "The request requires user authentication."
+          }, 
+          "403": {
+            "description": "The server understood the request, but is refusing to fulfill it."
+          }
+        }, 
+        "security": [
+          {
+            "oauth2": [
+              "activity", 
+              "heartrate", 
+              "location", 
+              "nutrition", 
+              "profile", 
+              "settings", 
+              "sleep", 
+              "social", 
+              "weight"
+            ]
+          }
+        ], 
+        "summary": "Get Food Logs", 
+        "tags": [
+          "Food Logging"
+        ]
+      }
+    }, 
+    "/1/user/-/foods/log/favorite.json": {
+      "get": {
+        "description": "Returns a list of a user's favorite foods in the format requested. A favorite food in the list provides a quick way to log the food via the Log Food endpoint.", 
+        "operationId": "food", 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "Successful request."
+          }, 
+          "400": {
+            "description": "The request had bad syntax or was inherently impossible to be satified."
+          }, 
+          "401": {
+            "description": "The request requires user authentication."
+          }, 
+          "403": {
+            "description": "The server understood the request, but is refusing to fulfill it."
+          }
+        }, 
+        "security": [
+          {
+            "oauth2": [
+              "activity", 
+              "heartrate", 
+              "location", 
+              "nutrition", 
+              "profile", 
+              "settings", 
+              "sleep", 
+              "social", 
+              "weight"
+            ]
+          }
+        ], 
+        "summary": "Get Favorite Foods", 
+        "tags": [
+          "Food Logging"
+        ]
+      }
+    }, 
+    "/1/user/-/foods/log/favorite/{food-id}.json": {
+      "delete": {
+        "description": "Deletes a food with the given ID to the user's list of favorite foods.", 
+        "operationId": "food", 
+        "parameters": [
+          {
+            "description": "The ID of the food to be deleted from user's favorites.", 
+            "in": "path", 
+            "name": "food-id", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "204": {
+            "description": "successful request"
+          }, 
+          "400": {
+            "description": "The request had bad syntax or was inherently impossible to be satified."
+          }, 
+          "401": {
+            "description": "The request requires user authentication."
+          }, 
+          "403": {
+            "description": "The server understood the request, but is refusing to fulfill it."
+          }
+        }, 
+        "security": [
+          {
+            "oauth2": [
+              "activity", 
+              "heartrate", 
+              "location", 
+              "nutrition", 
+              "profile", 
+              "settings", 
+              "sleep", 
+              "social", 
+              "weight"
+            ]
+          }
+        ], 
+        "summary": "Delete Favorite Food", 
+        "tags": [
+          "Food Logging"
+        ]
+      }, 
+      "post": {
+        "description": "Updates a user's daily activity goals and returns a response using units in the unit system which corresponds to the Accept-Language header provided.", 
+        "operationId": "food", 
+        "parameters": [
+          {
+            "description": "The ID of the food to be added to user's favorites.", 
+            "in": "path", 
+            "name": "food-id", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "Successful request."
+          }, 
+          "400": {
+            "description": "The request had bad syntax or was inherently impossible to be satified."
+          }, 
+          "401": {
+            "description": "The request requires user authentication."
+          }, 
+          "403": {
+            "description": "The server understood the request, but is refusing to fulfill it."
+          }
+        }, 
+        "security": [
+          {
+            "oauth2": [
+              "activity", 
+              "heartrate", 
+              "location", 
+              "nutrition", 
+              "profile", 
+              "settings", 
+              "sleep", 
+              "social", 
+              "weight"
+            ]
+          }
+        ], 
+        "summary": "Add Favorite Food", 
+        "tags": [
+          "Food Logging"
+        ]
+      }
+    }, 
+    "/1/user/-/foods/log/frequent.json": {
+      "get": {
+        "description": "Returns a list of a user's frequent foods in the format requested. A frequent food in the list provides a quick way to log the food via the Log Food endpoint.", 
+        "operationId": "food", 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "Successful request."
+          }, 
+          "400": {
+            "description": "The request had bad syntax or was inherently impossible to be satified."
+          }, 
+          "401": {
+            "description": "The request requires user authentication."
+          }, 
+          "403": {
+            "description": "The server understood the request, but is refusing to fulfill it."
+          }
+        }, 
+        "security": [
+          {
+            "oauth2": [
+              "activity", 
+              "heartrate", 
+              "location", 
+              "nutrition", 
+              "profile", 
+              "settings", 
+              "sleep", 
+              "social", 
+              "weight"
+            ]
+          }
+        ], 
+        "summary": "Get Frequent Foods", 
+        "tags": [
+          "Food Logging"
+        ]
+      }
+    }, 
+    "/1/user/-/foods/log/goal.json": {
+      "get": {
+        "description": "Returns a user's current daily calorie consumption goal and/or foodPlan value in the format requested.", 
+        "operationId": "food", 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "A successful request."
+          }, 
+          "400": {
+            "description": "The request had bad syntax or was inherently impossible to be satified."
+          }, 
+          "401": {
+            "description": "The request requires user authentication."
+          }, 
+          "403": {
+            "description": "The server understood the request, but is refusing to fulfill it."
+          }
+        }, 
+        "security": [
+          {
+            "oauth2": [
+              "activity", 
+              "heartrate", 
+              "location", 
+              "nutrition", 
+              "profile", 
+              "settings", 
+              "sleep", 
+              "social", 
+              "weight"
+            ]
+          }
+        ], 
+        "summary": "Get Food Goals", 
+        "tags": [
+          "Food Logging"
+        ]
+      }, 
+      "post": {
+        "description": "Updates a user's daily calories consumption goal or food plan and returns a response in the format requested.", 
+        "operationId": "food", 
+        "parameters": [
+          {
+            "description": "Manual calorie consumption goal in either calories or intensity must be provided.", 
+            "in": "query", 
+            "name": "calories", 
+            "required": true, 
+            "type": "integer"
+          }, 
+          {
+            "description": "Food plan intensity (MAINTENANCE, EASIER, MEDIUM, KINDAHARD, or HARDER). Either calories or intensity must be provided.", 
+            "in": "query", 
+            "name": "intensity", 
+            "required": false, 
+            "type": "string"
+          }, 
+          {
+            "description": "Food plan type; true or false.", 
+            "in": "query", 
+            "name": "personalized", 
+            "required": false, 
+            "type": "string"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "201": {
+            "description": "The request has been fulfilled and resulted in a new resource being created."
+          }, 
+          "400": {
+            "description": "The request had bad syntax or was inherently impossible to be satified."
+          }, 
+          "401": {
+            "description": "The request requires user authentication."
+          }, 
+          "403": {
+            "description": "The server understood the request, but is refusing to fulfill it."
+          }
+        }, 
+        "security": [
+          {
+            "oauth2": [
+              "activity", 
+              "heartrate", 
+              "location", 
+              "nutrition", 
+              "profile", 
+              "settings", 
+              "sleep", 
+              "social", 
+              "weight"
+            ]
+          }
+        ], 
+        "summary": "Update Food Goal", 
+        "tags": [
+          "Food Logging"
+        ]
+      }
+    }, 
+    "/1/user/-/foods/log/recent.json": {
+      "get": {
+        "description": "Returns a list of a user's frequent foods in the format requested. A frequent food in the list provides a quick way to log the food via the Log Food endpoint.", 
+        "operationId": "food", 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "Successful request."
+          }, 
+          "400": {
+            "description": "The request had bad syntax or was inherently impossible to be satified."
+          }, 
+          "401": {
+            "description": "The request requires user authentication."
+          }, 
+          "403": {
+            "description": "The server understood the request, but is refusing to fulfill it."
+          }
+        }, 
+        "security": [
+          {
+            "oauth2": [
+              "activity", 
+              "heartrate", 
+              "location", 
+              "nutrition", 
+              "profile", 
+              "settings", 
+              "sleep", 
+              "social", 
+              "weight"
+            ]
+          }
+        ], 
+        "summary": "Get Recent Foods", 
+        "tags": [
+          "Food Logging"
+        ]
+      }
+    }, 
+    "/1/user/-/foods/log/water.json": {
+      "post": {
+        "description": "Creates a log entry for water using units in the unit systems that corresponds to the Accept-Language header provided.", 
+        "operationId": "", 
+        "parameters": [
+          {
+            "description": "The date of records to be returned in the format yyyy-MM-dd.", 
+            "in": "query", 
+            "name": "date", 
+            "required": true, 
+            "type": "date"
+          }, 
+          {
+            "description": "The amount consumption in the format X.XX and in the specified waterUnit or in the unit system that corresponds to the Accept-Language header provided.", 
+            "in": "query", 
+            "name": "amount", 
+            "required": true, 
+            "type": "integer"
+          }, 
+          {
+            "description": "Water measurement unit; `ml`, `fl oz`, or `cup`.", 
+            "in": "query", 
+            "name": "unit", 
+            "required": false, 
+            "type": "string"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "201": {
+            "description": "The request has been fulfilled and resulted in a new resource being created."
+          }, 
+          "400": {
+            "description": "The request had bad syntax or was inherently impossible to be satified."
+          }, 
+          "401": {
+            "description": "The request requires user authentication."
+          }, 
+          "403": {
+            "description": "The server understood the request, but is refusing to fulfill it."
+          }
+        }, 
+        "security": [
+          {
+            "oauth2": [
+              "activity", 
+              "heartrate", 
+              "location", 
+              "nutrition", 
+              "profile", 
+              "settings", 
+              "sleep", 
+              "social", 
+              "weight"
+            ]
+          }
+        ], 
+        "summary": "Log Water", 
+        "tags": [
+          "Food Logging"
+        ]
+      }
+    }, 
+    "/1/user/-/foods/log/water/date/{date}.json": {
+      "get": {
+        "description": "Retreives a summary and list of a user's water log entries for a given day in the requested using units in the unit system that corresponds to the Accept-Language header provided.", 
+        "operationId": "water", 
+        "parameters": [
+          {
+            "description": "The date of records to be returned. In the format yyyy-MM-dd.", 
+            "in": "path", 
+            "name": "date", 
+            "required": true, 
+            "type": "date"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "A successful request."
+          }, 
+          "400": {
+            "description": "The request had bad syntax or was inherently impossible to be satified."
+          }, 
+          "401": {
+            "description": "The request requires user authentication."
+          }, 
+          "403": {
+            "description": "The server understood the request, but is refusing to fulfill it."
+          }
+        }, 
+        "security": [
+          {
+            "oauth2": [
+              "activity", 
+              "heartrate", 
+              "location", 
+              "nutrition", 
+              "profile", 
+              "settings", 
+              "sleep", 
+              "social", 
+              "weight"
+            ]
+          }
+        ], 
+        "summary": "Get Water Logs", 
+        "tags": [
+          "Food Logging"
+        ]
+      }
+    }, 
+    "/1/user/-/foods/log/water/goal.json": {
+      "get": {
+        "description": "Retreives a summary and list of a user's water goal entries for a given day in the requested using units in the unit system that corresponds to the Accept-Language header provided.", 
+        "operationId": "water", 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "A successful request."
+          }
+        }, 
+        "security": [
+          {
+            "oauth2": [
+              "activity", 
+              "heartrate", 
+              "location", 
+              "nutrition", 
+              "profile", 
+              "settings", 
+              "sleep", 
+              "social", 
+              "weight"
+            ]
+          }
+        ], 
+        "summary": "Get Water Goal", 
+        "tags": [
+          "Food Logging"
+        ]
+      }, 
+      "post": {
+        "description": "Updates a user's daily calories consumption goal or food plan and returns a response in the format requested.", 
+        "operationId": "water", 
+        "parameters": [
+          {
+            "description": "The target water goal in the format X.X is set in unit based on locale.", 
+            "in": "query", 
+            "name": "target", 
+            "required": true, 
+            "type": "integer"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "201": {
+            "description": "The request has been fulfilled and resulted in a new resource being created."
+          }, 
+          "400": {
+            "description": "The request had bad syntax or was inherently impossible to be satified."
+          }, 
+          "401": {
+            "description": "The request requires user authentication."
+          }, 
+          "403": {
+            "description": "The server understood the request, but is refusing to fulfill it."
+          }
+        }, 
+        "security": [
+          {
+            "oauth2": [
+              "activity", 
+              "heartrate", 
+              "location", 
+              "nutrition", 
+              "profile", 
+              "settings", 
+              "sleep", 
+              "social", 
+              "weight"
+            ]
+          }
+        ], 
+        "summary": "Update Water Goal", 
+        "tags": [
+          "Food Logging"
+        ]
+      }
+    }, 
+    "/1/user/-/foods/log/water/{water-log-id}.json": {
+      "delete": {
+        "description": "Deletes a user's water log entry with the given ID.", 
+        "operationId": "water", 
+        "parameters": [
+          {
+            "description": "The ID of the waterUnit log entry to be deleted.", 
+            "in": "path", 
+            "name": "water-log-id", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "Successful request."
+          }, 
+          "400": {
+            "description": "The request had bad syntax or was inherently impossible to be satified."
+          }, 
+          "401": {
+            "description": "The request requires user authentication."
+          }, 
+          "403": {
+            "description": "The server understood the request, but is refusing to fulfill it."
+          }
+        }, 
+        "security": [
+          {
+            "oauth2": [
+              "activity", 
+              "heartrate", 
+              "location", 
+              "nutrition", 
+              "profile", 
+              "settings", 
+              "sleep", 
+              "social", 
+              "weight"
+            ]
+          }
+        ], 
+        "summary": "Delete Water Log", 
+        "tags": [
+          "Food Logging"
+        ]
+      }, 
+      "post": {
+        "description": "Updates a user's water log entry with the given ID.", 
+        "operationId": "water", 
+        "parameters": [
+          {
+            "description": "The ID of the waterUnit log entry to be deleted.", 
+            "in": "path", 
+            "name": "water-log-id", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "Amount consumed; in the format X.X and in the specified waterUnit or in the unit system that corresponds to the Accept-Language header provided.", 
+            "in": "query", 
+            "name": "amount", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "Water measurement unit. 'ml', 'fl oz', or 'cup'.", 
+            "in": "query", 
+            "name": "unit", 
+            "required": false, 
+            "type": "string"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "Successful request."
+          }, 
+          "400": {
+            "description": "The request had bad syntax or was inherently impossible to be satified."
+          }, 
+          "401": {
+            "description": "The request requires user authentication."
+          }, 
+          "403": {
+            "description": "The server understood the request, but is refusing to fulfill it."
+          }
+        }, 
+        "security": [
+          {
+            "oauth2": [
+              "activity", 
+              "heartrate", 
+              "location", 
+              "nutrition", 
+              "profile", 
+              "settings", 
+              "sleep", 
+              "social", 
+              "weight"
+            ]
+          }
+        ], 
+        "summary": "Update Water Log", 
+        "tags": [
+          "Food Logging"
+        ]
+      }
+    }, 
+    "/1/user/-/foods/log/{food-log-id}.json": {
+      "delete": {
+        "description": "Deletes a user's food log entry with the given ID.", 
+        "operationId": "food", 
+        "parameters": [
+          {
+            "description": "The ID of the food log entry to be deleted.", 
+            "in": "path", 
+            "name": "food-log-id", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "Successful request."
+          }, 
+          "400": {
+            "description": "The request had bad syntax or was inherently impossible to be satified."
+          }, 
+          "401": {
+            "description": "The request requires user authentication."
+          }, 
+          "403": {
+            "description": "The server understood the request, but is refusing to fulfill it."
+          }
+        }, 
+        "security": [
+          {
+            "oauth2": [
+              "activity", 
+              "heartrate", 
+              "location", 
+              "nutrition", 
+              "profile", 
+              "settings", 
+              "sleep", 
+              "social", 
+              "weight"
+            ]
+          }
+        ], 
+        "summary": "Delete Food Log", 
+        "tags": [
+          "Food Logging"
+        ]
+      }
+    }, 
+    "/1/user/-/foods/log/{resource-path}/date/{base-date}/{end-date}.json": {
+      "get": {
+        "description": "Updates a user's daily activity goals and returns a response using units in the unit system which corresponds to the Accept-Language header provided.", 
+        "operationId": "intraday", 
+        "parameters": [
+          {
+            "default": "caloriesIn", 
+            "description": "The resouce path. See options in the Resouce Path Options section in the full documentation.", 
+            "enum": [
+              "caloriesIn", 
+              "water"
+            ], 
+            "in": "path", 
+            "name": "resource-path", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "The range start date in the format yyyy-MM-dd or today.", 
+            "in": "path", 
+            "name": "base-date", 
+            "required": true, 
+            "type": "date"
+          }, 
+          {
+            "description": "The end date of the range.", 
+            "in": "path", 
+            "name": "end-date", 
+            "required": true, 
+            "type": "date"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "A successful request."
+          }, 
+          "400": {
+            "description": "The request had bad syntax or was inherently impossible to be satified."
+          }, 
+          "401": {
+            "description": "The request requires user authentication."
+          }, 
+          "403": {
+            "description": "The server understood the request, but is refusing to fulfill it."
+          }
+        }, 
+        "security": [
+          {
+            "oauth2": [
+              "activity", 
+              "heartrate", 
+              "location", 
+              "nutrition", 
+              "profile", 
+              "settings", 
+              "sleep", 
+              "social", 
+              "weight"
+            ]
+          }
+        ], 
+        "summary": "Get Food or Water Time Series", 
+        "tags": [
+          "Time Series"
+        ]
+      }
+    }, 
+    "/1/user/-/foods/log/{resource-path}/date/{date}/{period}.json": {
+      "get": {
+        "description": "Updates a user's daily activity goals and returns a response using units in the unit system which corresponds to the Accept-Language header provided.", 
+        "operationId": "", 
+        "parameters": [
+          {
+            "default": "caloriesIn", 
+            "description": "The resouce path. See options in the Resouce Path Options section in the full documentation.", 
+            "enum": [
+              "caloriesIn", 
+              "water"
+            ], 
+            "in": "path", 
+            "name": "resource-path", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "The end date of the period specified in the format yyyy-MM-dd or today.", 
+            "in": "path", 
+            "name": "date", 
+            "required": true, 
+            "type": "date"
+          }, 
+          {
+            "description": "The range for which data will be returned. Options are 1d, 7d, 30d, 1w, 3m, 6m, 1y, or max.", 
+            "in": "path", 
+            "name": "period", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "A successful request."
+          }, 
+          "400": {
+            "description": "The request had bad syntax or was inherently impossible to be satified."
+          }, 
+          "401": {
+            "description": "The request requires user authentication."
+          }, 
+          "403": {
+            "description": "The server understood the request, but is refusing to fulfill it."
+          }
+        }, 
+        "security": [
+          {
+            "oauth2": [
+              "activity", 
+              "heartrate", 
+              "location", 
+              "nutrition", 
+              "profile", 
+              "settings", 
+              "sleep", 
+              "social", 
+              "weight"
+            ]
+          }
+        ], 
+        "summary": "Get Food or Water Time Series", 
+        "tags": [
+          "Time Series"
+        ]
+      }
+    }, 
+    "/1/user/-/foods/{food-id}.json": {
+      "delete": {
+        "description": "Deletes custom food for a user and returns a response in the format requested.", 
+        "operationId": "food", 
+        "parameters": [
+          {
+            "description": "The ID of the food to be deleted.", 
+            "in": "path", 
+            "name": "food-id", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "204": {
+            "description": "The server has fulfilled the request but does not need to return an entity-body, and might want to return updated metainformation."
+          }, 
+          "400": {
+            "description": "The request had bad syntax or was inherently impossible to be satified."
+          }, 
+          "401": {
+            "description": "The request requires user authentication."
+          }, 
+          "403": {
+            "description": "The server understood the request, but is refusing to fulfill it."
+          }
+        }, 
+        "security": [
+          {
+            "oauth2": [
+              "activity", 
+              "heartrate", 
+              "location", 
+              "nutrition", 
+              "profile", 
+              "settings", 
+              "sleep", 
+              "social", 
+              "weight"
+            ]
+          }
+        ], 
+        "summary": "Delete Custom Food", 
+        "tags": [
+          "Food Logging"
+        ]
+      }
+    }, 
+    "/1/user/-/friends.json": {
+      "get": {
+        "description": "Returns data of a user's friends in the format requested using units in the unit system which corresponds to the Accept-Language header provided.", 
+        "operationId": "friends", 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "Successful request."
+          }, 
+          "201": {
+            "description": "The request has been fulfilled and resulted in a new resource being created."
+          }, 
+          "401": {
+            "description": "The request requires user authentication."
+          }
+        }, 
+        "security": [
+          {
+            "oauth2": [
+              "activity", 
+              "heartrate", 
+              "location", 
+              "nutrition", 
+              "profile", 
+              "settings", 
+              "sleep", 
+              "social", 
+              "weight"
+            ]
+          }
+        ], 
+        "summary": "Get Friends", 
+        "tags": [
+          "Friends"
+        ]
+      }
+    }, 
+    "/1/user/-/friends/invitations.json": {
+      "get": {
+        "description": "Creates an invitation to become friends with the authorized user.", 
+        "operationId": "friends", 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "Successful request."
+          }, 
+          "201": {
+            "description": "The request has been fulfilled and resulted in a new resource being created."
+          }, 
+          "401": {
+            "description": "The request requires user authentication."
+          }
+        }, 
+        "security": [
+          {
+            "oauth2": [
+              "activity", 
+              "heartrate", 
+              "location", 
+              "nutrition", 
+              "profile", 
+              "settings", 
+              "sleep", 
+              "social", 
+              "weight"
+            ]
+          }
+        ], 
+        "summary": "Invite Friend", 
+        "tags": [
+          "Friends"
+        ]
+      }
+    }, 
+    "/1/user/-/friends/invitations/{from-user-id}.json": {
+      "get": {
+        "description": "Accepts or rejects an invitation to become friends wit inviting user.", 
+        "operationId": "friends", 
+        "parameters": [
+          {
+            "description": "The encoded ID of a user from which to accept or reject invitation.", 
+            "in": "path", 
+            "name": "from-user-id", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "Accept or reject invitation; true or false.", 
+            "in": "query", 
+            "name": "accept", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "Successful request."
+          }, 
+          "201": {
+            "description": "The request has been fulfilled and resulted in a new resource being created."
+          }, 
+          "401": {
+            "description": "The request requires user authentication."
+          }
+        }, 
+        "security": [
+          {
+            "oauth2": [
+              "activity", 
+              "heartrate", 
+              "location", 
+              "nutrition", 
+              "profile", 
+              "settings", 
+              "sleep", 
+              "social", 
+              "weight"
+            ]
+          }
+        ], 
+        "summary": "Respond to Friend Invitation", 
+        "tags": [
+          "Friends"
+        ]
+      }
+    }, 
+    "/1/user/-/friends/leaderboard.json": {
+      "get": {
+        "description": "Returns data of a user's friends in the format requested using units in the unit system which corresponds to the Accept-Language header provided.", 
+        "operationId": "friends", 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "Successful request."
+          }, 
+          "201": {
+            "description": "The request has been fulfilled and resulted in a new resource being created."
+          }, 
+          "401": {
+            "description": "The request requires user authentication."
+          }
+        }, 
+        "security": [
+          {
+            "oauth2": [
+              "activity", 
+              "heartrate", 
+              "location", 
+              "nutrition", 
+              "profile", 
+              "settings", 
+              "sleep", 
+              "social", 
+              "weight"
+            ]
+          }
+        ], 
+        "summary": "Get Friends Leaderboard", 
+        "tags": [
+          "Friends"
+        ]
+      }
+    }, 
+    "/1/user/-/meals.json": {
+      "get": {
+        "description": "Returns a list of meals created by user in the user's food log in the format requested. User creates and manages meals on the Food Log tab on the website.", 
+        "operationId": "food", 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "Successful request."
+          }, 
+          "400": {
+            "description": "The request had bad syntax or was inherently impossible to be satified."
+          }, 
+          "401": {
+            "description": "The request requires user authentication."
+          }, 
+          "403": {
+            "description": "The server understood the request, but is refusing to fulfill it."
+          }
+        }, 
+        "security": [
+          {
+            "oauth2": [
+              "activity", 
+              "heartrate", 
+              "location", 
+              "nutrition", 
+              "profile", 
+              "settings", 
+              "sleep", 
+              "social", 
+              "weight"
+            ]
+          }
+        ], 
+        "summary": "Get Meals", 
+        "tags": [
+          "Food Logging"
+        ]
+      }, 
+      "post": {
+        "description": "Creates a meal with the given food contained in the post body.", 
+        "operationId": "food", 
+        "parameters": [
+          {
+            "description": "Name of the meal.", 
+            "in": "query", 
+            "name": "name", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "Short description of the meal.", 
+            "in": "query", 
+            "name": "Description", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "ID of the food to be included in the meal.", 
+            "in": "query", 
+            "name": "foodId", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "ID of units used. Typically retrieved via a previous call to Get Food Logs, Search Foods, or Get Food Units.", 
+            "in": "query", 
+            "name": "unitId", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "Amount consumed; in the format X.XX, in the specified unitId.", 
+            "in": "query", 
+            "name": "amount", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "Successful request."
+          }, 
+          "400": {
+            "description": "The request had bad syntax or was inherently impossible to be satified."
+          }, 
+          "401": {
+            "description": "The request requires user authentication."
+          }, 
+          "403": {
+            "description": "The server understood the request, but is refusing to fulfill it."
+          }
+        }, 
+        "security": [
+          {
+            "oauth2": [
+              "activity", 
+              "heartrate", 
+              "location", 
+              "nutrition", 
+              "profile", 
+              "settings", 
+              "sleep", 
+              "social", 
+              "weight"
+            ]
+          }
+        ], 
+        "summary": "Create Meal", 
+        "tags": [
+          "Food Logging"
+        ]
+      }
+    }, 
+    "/1/user/-/meals/{meal-id}.json": {
+      "delete": {
+        "description": "Deletes a user's meal with the given meal id.", 
+        "operationId": "food", 
+        "parameters": [
+          {
+            "description": "Id of the meal to delete.", 
+            "in": "path", 
+            "name": "meal-id", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "Successful request."
+          }, 
+          "400": {
+            "description": "The request had bad syntax or was inherently impossible to be satified."
+          }, 
+          "401": {
+            "description": "The request requires user authentication."
+          }, 
+          "403": {
+            "description": "The server understood the request, but is refusing to fulfill it."
+          }
+        }, 
+        "security": [
+          {
+            "oauth2": [
+              "activity", 
+              "heartrate", 
+              "location", 
+              "nutrition", 
+              "profile", 
+              "settings", 
+              "sleep", 
+              "social", 
+              "weight"
+            ]
+          }
+        ], 
+        "summary": "Delete Meal", 
+        "tags": [
+          "Food Logging"
+        ]
+      }, 
+      "post": {
+        "description": "Replaces an existing meal with the contents of the request. The response contains the updated meal.", 
+        "operationId": "food", 
+        "parameters": [
+          {
+            "description": "Id of the meal to edit.", 
+            "in": "path", 
+            "name": "meal-id", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "Name of the meal.", 
+            "in": "query", 
+            "name": "name", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "Short description of the meal.", 
+            "in": "query", 
+            "name": "Description", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "ID of the food to be included in the meal.", 
+            "in": "query", 
+            "name": "foodId", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "ID of units used. Typically retrieved via a previous call to Get Food Logs, Search Foods, or Get Food Units.", 
+            "in": "query", 
+            "name": "unitId", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "Amount consumed; in the format X.XX, in the specified unitId.", 
+            "in": "query", 
+            "name": "amount", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "Successful request."
+          }, 
+          "400": {
+            "description": "The request had bad syntax or was inherently impossible to be satified."
+          }, 
+          "401": {
+            "description": "The request requires user authentication."
+          }, 
+          "403": {
+            "description": "The server understood the request, but is refusing to fulfill it."
+          }
+        }, 
+        "security": [
+          {
+            "oauth2": [
+              "activity", 
+              "heartrate", 
+              "location", 
+              "nutrition", 
+              "profile", 
+              "settings", 
+              "sleep", 
+              "social", 
+              "weight"
+            ]
+          }
+        ], 
+        "summary": "Edit Meal", 
+        "tags": [
+          "Food Logging"
+        ]
+      }
+    }, 
+    "/1/user/-/profile.json": {
+      "get": {
+        "description": "Returns a user's profile. The authenticated owner receives all values. However, the authenticated user's access to other users' data is subject to those users' privacy settings. Numerical values are returned in the unit system specified in the Accept-Language header.", 
+        "operationId": "profile", 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "A successful request."
+          }, 
+          "201": {
+            "description": "Returned if a new subscription was created in response to your request."
+          }, 
+          "401": {
+            "description": "The request requires user authentication."
+          }, 
+          "409": {
+            "description": "Returned if the given user is already subscribed to this stream using a different subscription ID, OR if the given subscription ID is already used to identify a subscription to a different stream."
+          }
+        }, 
+        "security": [
+          {
+            "oauth2": [
+              "location", 
+              "profile", 
+              "weight"
+            ]
+          }
+        ], 
+        "summary": "Get Profile", 
+        "tags": [
+          "User"
+        ]
+      }, 
+      "post": {
+        "consumes": [
+          "multipart/form-data"
+        ], 
+        "description": "Updates a user's profile using a form.", 
+        "operationId": "profile", 
+        "parameters": [
+          {
+            "description": "The sex of the user; (MALE/FEMALE/NA).", 
+            "in": "formData", 
+            "name": "gender", 
+            "required": false, 
+            "type": "string"
+          }, 
+          {
+            "description": "The date of birth in the format of yyyy-MM-dd.", 
+            "in": "formData", 
+            "name": "birthday", 
+            "required": false, 
+            "type": "date"
+          }, 
+          {
+            "description": "The height in the format X.XX in the unit system that corresponds to the Accept-Language header provided.", 
+            "in": "formData", 
+            "name": "height", 
+            "required": false, 
+            "type": "string"
+          }, 
+          {
+            "description": "This is a short description of user.", 
+            "in": "formData", 
+            "name": "aboutMe", 
+            "required": false, 
+            "type": "string"
+          }, 
+          {
+            "description": "The fullname of the user.", 
+            "in": "formData", 
+            "name": "fullname", 
+            "required": false, 
+            "type": "string"
+          }, 
+          {
+            "description": "The country of the user's residence. This is a two-character code.", 
+            "in": "formData", 
+            "name": "country", 
+            "required": false, 
+            "type": "string"
+          }, 
+          {
+            "description": "The US state of the user's residence. This is a two-character code if the country was or is set to US.", 
+            "in": "formData", 
+            "name": "state", 
+            "required": false, 
+            "type": "string"
+          }, 
+          {
+            "description": "The US city of the user's residence.", 
+            "in": "formData", 
+            "name": "city", 
+            "required": false, 
+            "type": "string"
+          }, 
+          {
+            "description": "Walking stride length in the format X.XX, where it is in the unit system that corresponds to the Accept-Language header provided.", 
+            "in": "formData", 
+            "name": "strideLengthWalking", 
+            "required": false, 
+            "type": "string"
+          }, 
+          {
+            "description": "Running stride length in the format X.XX, where it is in the unit system that corresponds to the Accept-Language header provided.", 
+            "in": "formData", 
+            "name": "strideLengthRunning", 
+            "required": false, 
+            "type": "string"
+          }, 
+          {
+            "description": "Default weight unit on website (which doesn't affect API); one of (en_US, en_GB, 'any' for METRIC).", 
+            "in": "formData", 
+            "name": "weightUnit", 
+            "required": false, 
+            "type": "string"
+          }, 
+          {
+            "description": "Default height/distance unit on website (which doesn't affect API); one of (en_US, en_GB, 'any' for METRIC).", 
+            "in": "formData", 
+            "name": "heightUnit", 
+            "required": false, 
+            "type": "string"
+          }, 
+          {
+            "description": "Default water unit on website (which doesn't affect API); one of (en_US, en_GB, 'any' for METRIC).", 
+            "in": "formData", 
+            "name": "waterUnit", 
+            "required": false, 
+            "type": "string"
+          }, 
+          {
+            "description": "Default glucose unit on website (which doesn't affect API); one of (en_US, en_GB, 'any' for METRIC).", 
+            "in": "formData", 
+            "name": "glucoseUnit", 
+            "required": false, 
+            "type": "string"
+          }, 
+          {
+            "description": "The timezone in the format 'America/Los_Angeles'.", 
+            "in": "formData", 
+            "name": "timezone", 
+            "required": false, 
+            "type": "string"
+          }, 
+          {
+            "description": "The food database locale in the format of xx.XX.", 
+            "in": "formData", 
+            "name": "foodsLocale", 
+            "required": false, 
+            "type": "string"
+          }, 
+          {
+            "description": "The locale of the website (country/language); one of the locales, currently \u2013 (en_US, fr_FR, de_DE, es_ES, en_GB, en_AU, en_NZ, ja_JP).", 
+            "in": "formData", 
+            "name": "locale", 
+            "required": false, 
+            "type": "string"
+          }, 
+          {
+            "description": "The Language in the format 'xx'. You should specify either locale or both - localeLang and localeCountry (locale is higher priority).", 
+            "in": "formData", 
+            "name": "localeLang", 
+            "required": false, 
+            "type": "string"
+          }, 
+          {
+            "description": "The Country in the format 'xx'. You should specify either locale or both - localeLang and localeCountry (locale is higher priority).", 
+            "in": "formData", 
+            "name": "localeCountry", 
+            "required": false, 
+            "type": "string"
+          }, 
+          {
+            "description": "The Start day of the week, meaning what day the week should start on. Either Sunday or Monday.", 
+            "in": "formData", 
+            "name": "startDayOfWeek", 
+            "required": false, 
+            "type": "string"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "A successful request."
+          }, 
+          "201": {
+            "description": "Returned if a new subscription was created in response to your request."
+          }, 
+          "409": {
+            "description": "Returned if the given user is already subscribed to this stream using a different subscription ID, OR if the given subscription ID is already used to identify a subscription to a different stream."
+          }
+        }, 
+        "security": [
+          {
+            "oauth2": [
+              "activity", 
+              "heartrate", 
+              "location", 
+              "nutrition", 
+              "profile", 
+              "settings", 
+              "sleep", 
+              "social", 
+              "weight"
+            ]
+          }
+        ], 
+        "summary": "Update Profile", 
+        "tags": [
+          "User"
+        ]
+      }
+    }, 
+    "/1/user/-/sleep/{resource-path}/date/{base-date}/{end-date}.json": {
+      "get": {
+        "deprecated": true, 
+        "description": "Returns time series data in the specified range for a given resource in the format requested using units in the unit system that corresponds to the Accept-Language header provided.", 
+        "operationId": "intraday", 
+        "parameters": [
+          {
+            "default": "startTime", 
+            "description": "The resource path; see the Resource Path Options in the full documentation.", 
+            "enum": [
+              "startTime", 
+              "timeInBed", 
+              "minutesAsleep", 
+              "awakeningsCount", 
+              "minutesAwake", 
+              "minutesToFallAsleep", 
+              "minutesAfterWakeup", 
+              "efficiency"
+            ], 
+            "in": "path", 
+            "name": "resource-path", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "The range start date in the format yyyy-MM-dd or today.", 
+            "in": "path", 
+            "name": "base-date", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "The end date of the range.", 
+            "in": "path", 
+            "name": "end-date", 
+            "required": true, 
+            "type": "date"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "Successful request."
+          }, 
+          "401": {
+            "description": "The request requires user authentication."
+          }, 
+          "403": {
+            "description": "The server understood the request, but is refusing to fulfill it."
+          }
+        }, 
+        "security": [
+          {
+            "oauth2": [
+              "activity", 
+              "heartrate", 
+              "location", 
+              "nutrition", 
+              "profile", 
+              "settings", 
+              "sleep", 
+              "social", 
+              "weight"
+            ]
+          }
+        ], 
+        "summary": "Get Sleep Time Series", 
+        "tags": [
+          "Time Series"
+        ]
+      }
+    }, 
+    "/1/user/-/sleep/{resource-path}/date/{date}/{period}.json": {
+      "get": {
+        "deprecated": true, 
+        "description": "Returns time series data in the specified range for a given resource in the format requested using units in the unit system that corresponds to the Accept-Language header provided.", 
+        "operationId": "intraday", 
+        "parameters": [
+          {
+            "default": "startTime", 
+            "description": "The resource path; see the Resource Path Options in the full documentation.", 
+            "enum": [
+              "startTime", 
+              "timeInBed", 
+              "minutesAsleep", 
+              "awakeningsCount", 
+              "minutesAwake", 
+              "minutesToFallAsleep", 
+              "minutesAfterWakeup", 
+              "efficiency"
+            ], 
+            "in": "path", 
+            "name": "resource-path", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "The end date of the period specified in the format yyyy-MM-dd or today.", 
+            "in": "path", 
+            "name": "date", 
+            "required": true, 
+            "type": "date"
+          }, 
+          {
+            "description": "The range for which data will be returned. Options are 1d, 7d, 30d, 1w, 1m, 3m, 6m, 1y, or max.", 
+            "in": "path", 
+            "name": "period", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "Successful request."
+          }, 
+          "401": {
+            "description": "The request requires user authentication."
+          }, 
+          "403": {
+            "description": "The server understood the request, but is refusing to fulfill it."
+          }
+        }, 
+        "security": [
+          {
+            "oauth2": [
+              "activity", 
+              "heartrate", 
+              "location", 
+              "nutrition", 
+              "profile", 
+              "settings", 
+              "sleep", 
+              "social", 
+              "weight"
+            ]
+          }
+        ], 
+        "summary": "Get Sleep Time Series", 
+        "tags": [
+          "Time Series"
+        ]
+      }
+    }, 
+    "/1/user/-/{collection-path}/apiSubscriptions.json": {
+      "get": {
+        "description": "Retreives a list of a user's subscriptions for your application in the format requested. You can either fetch subscriptions for a specific collection or the entire list of subscriptions for the user. For best practice, make sure that your application maintains this list on your side and use this endpoint only to periodically ensure data consistency.", 
+        "operationId": "subscription", 
+        "parameters": [
+          {
+            "description": "This is the resource of the collection to receive notifications from (foods, activities, sleep, or body). If not present, subscription will be created for all collections. If you have both all and specific collection subscriptions, you will get duplicate notifications on that collections' updates. Each subscriber can have only one subscription for a specific user's collection.", 
+            "in": "path", 
+            "name": "collection-path", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "Returned if the given user is already subscribed to the stream."
+          }, 
+          "201": {
+            "description": "Returned if a new subscription was created in response to your request."
+          }, 
+          "409": {
+            "description": "Returned if the given user is already subscribed to this stream using a different subscription ID, OR if the given subscription ID is already used to identify a subscription to a different stream."
+          }
+        }, 
+        "security": [
+          {
+            "oauth2": [
+              "activity", 
+              "heartrate", 
+              "location", 
+              "nutrition", 
+              "profile", 
+              "settings", 
+              "sleep", 
+              "social", 
+              "weight"
+            ]
+          }
+        ], 
+        "summary": "Get a List of Subscriptions", 
+        "tags": [
+          "Subscriptions"
+        ]
+      }
+    }, 
+    "/1/user/-/{collection-path}/apiSubscriptions/{subscription-id}.json": {
+      "delete": {
+        "description": "Deletes a subscription for a user..", 
+        "operationId": "subscription", 
+        "parameters": [
+          {
+            "description": "This is the resource of the collection to receive notifications from (foods, activities, sleep, or body). If not present, subscription will be created for all collections. If you have both all and specific collection subscriptions, you will get duplicate notifications on that collections' updates. Each subscriber can have only one subscription for a specific user's collection.", 
+            "in": "path", 
+            "name": "collection-path", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "This is the resource of the collection to receive notifications from (foods, activities, sleep, or body). If not present, subscription will be created for all collections. If you have both all and specific collection subscriptions, you will get duplicate notifications on that collections' updates. Each subscriber can have only one subscription for a specific user's collection.", 
+            "in": "path", 
+            "name": "subscription-id", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "201": {
+            "description": "Returned if a new subscription was created in response to your request."
+          }, 
+          "204": {
+            "description": "A successful request."
+          }, 
+          "409": {
+            "description": "Returned if the given user is already subscribed to this stream using a different subscription ID, OR if the given subscription ID is already used to identify a subscription to a different stream."
+          }
+        }, 
+        "security": [
+          {
+            "oauth2": [
+              "activity", 
+              "heartrate", 
+              "location", 
+              "nutrition", 
+              "profile", 
+              "settings", 
+              "sleep", 
+              "social", 
+              "weight"
+            ]
+          }
+        ], 
+        "summary": "Delete a Subscription", 
+        "tags": [
+          "Subscriptions"
+        ]
+      }, 
+      "post": {
+        "description": "Adds a subscription in your application so that users can get notifications and return a response in the format requested. The subscription-id value provides a way to associate an update with a particular user stream in your application.", 
+        "operationId": "subscription", 
+        "parameters": [
+          {
+            "description": "This is the resource of the collection to receive notifications from (foods, activities, sleep, or body). If not present, subscription will be created for all collections. If you have both all and specific collection subscriptions, you will get duplicate notifications on that collections' updates. Each subscriber can have only one subscription for a specific user's collection.", 
+            "in": "path", 
+            "name": "collection-path", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "This is the unique ID of the subscription created by the API client application. Each ID must be unique across the entire set of subscribers and collections. The Fitbit servers will pass this ID back along with any notifications about the user indicated by the user parameter in the URL path.", 
+            "in": "path", 
+            "name": "subscription-id", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "Returned if the given user is already subscribed to the stream."
+          }, 
+          "201": {
+            "description": "Returned if a new subscription was created in response to your request."
+          }, 
+          "409": {
+            "description": "Returned if the given user is already subscribed to this stream using a different subscription ID, OR if the given subscription ID is already used to identify a subscription to a different stream."
+          }
+        }, 
+        "security": [
+          {
+            "oauth2": [
+              "activity", 
+              "heartrate", 
+              "location", 
+              "nutrition", 
+              "profile", 
+              "settings", 
+              "sleep", 
+              "social", 
+              "weight"
+            ]
+          }
+        ], 
+        "summary": "Add a Subscription", 
+        "tags": [
+          "Subscriptions"
+        ]
+      }
+    }, 
+    "/oauth2/introspect": {
+      "post": {
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ], 
+        "description": "Retrieves the active state of an OAuth 2.0 token. It follows https://tools.ietf.org/html/rfc7662. The response body is not shown because of a swagger bug (https://github.com/domaindrivendev/Swashbuckle/issues/1172). Copy paste the curl request to a terminal to see the response body", 
+        "parameters": [
+          {
+            "description": "OAuth 2.0 token to retrieve the state of", 
+            "in": "formData", 
+            "name": "token", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "A successful request."
+          }, 
+          "400": {
+            "description": "The request had bad syntax or was inherently impossible to be satisfied."
+          }, 
+          "401": {
+            "description": "Authentication was unsuccessful due to invalid client credentials."
+          }, 
+          "409": {
+            "description": "Request conflict due to multiple clients"
+          }
+        }, 
+        "security": [
+          {
+            "oauth2": []
+          }
+        ], 
+        "summary": "Retrieve the active state of an OAuth 2.0 token", 
+        "tags": [
+          "Auth"
+        ]
+      }
+    }, 
+    "/oauth2/token": {
+      "post": {
+        "description": "Retrieves an OAuth 2 access token.", 
+        "parameters": [
+          {
+            "description": "The Authorization header must be set to 'Basic' followed by a space, then the Base64 encoded string of your application's client id and secret concatenated with a colon. For example, 'Basic Y2xpZW50X2lkOmNsaWVudCBzZWNyZXQ='. The Base64 encoded string, 'Y2xpZW50X2lkOmNsaWVudCBzZWNyZXQ=', is decoded as 'client_id:client secret'.", 
+            "in": "header", 
+            "name": "Authorization", 
+            "type": "string"
+          }, 
+          {
+            "description": "Authorization code received in the redirect as URI parameter. Required if using the Authorization Code flow.", 
+            "in": "query", 
+            "name": "code", 
+            "required": false, 
+            "type": "string"
+          }, 
+          {
+            "description": "This is your Fitbit API application id from your settings on dev.fitbit.com.", 
+            "in": "query", 
+            "name": "client_id", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "Specify the desired access token lifetime. Defaults to 28800 for 8 hours. The other valid value is 3600 for 1 hour.", 
+            "in": "query", 
+            "name": "expires_in", 
+            "required": false, 
+            "type": "string"
+          }, 
+          {
+            "description": "Authorization grant type. Valid values are 'authorization_code' and 'refresh_token'.", 
+            "in": "query", 
+            "name": "grant_type", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "Uri to which the access token will be sent if the request is successful. Required if specified in the redirect to the authorization page. Must be exact match.", 
+            "in": "query", 
+            "name": "redirect_uri", 
+            "required": false, 
+            "type": "string"
+          }, 
+          {
+            "description": "Refresh token issued by Fitbit. Required if 'grant_type' is 'refresh_token'.", 
+            "in": "query", 
+            "name": "refresh_token", 
+            "required": false, 
+            "type": "string"
+          }, 
+          {
+            "description": "Required if specified in the redirect uri of the authorization page. Must be an exact match.", 
+            "in": "query", 
+            "name": "state", 
+            "required": false, 
+            "type": "string"
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "description": "A successful request."
+          }, 
+          "400": {
+            "description": "The request had bad syntax or was inherently impossible to be satisfied."
+          }, 
+          "401": {
+            "description": "Authentication was unsuccessful due to invalid client credentials."
+          }, 
+          "409": {
+            "description": "Request conflict due to multiple clients attempting to refresh the same access token."
+          }
+        }, 
+        "summary": "Get OAuth 2 access token", 
+        "tags": [
+          "Auth"
+        ]
+      }
+    }
+  }, 
+  "schemes": [
+    "https"
+  ], 
+  "securityDefinitions": {
+    "oauth2": {
+      "authorizationUrl": "https://www.fitbit.com/oauth2/authorize", 
+      "flow": "implicit", 
+      "scopes": {
+        "activity": "Activity data and exercise log related features, such as steps, distance, calories burned, and active minutes", 
+        "heartrate": "Continuous heart rate data and related analysis", 
+        "location": "GPS and other location data", 
+        "nutrition": "Calorie consumption and nutrition related features, such as food/water logging, goals, and plans", 
+        "profile": "Basic user information", 
+        "settings": "User account and device settings, such as alarms", 
+        "sleep": "Sleep logs and related sleep analysis", 
+        "social": "Friend-related features, such as friend list, invitations, and leaderboard", 
+        "weight": "Weight and related information, such as body mass index, body fat percentage, and goals"
+      }, 
+      "type": "oauth2"
+    }
+  }, 
+  "swagger": "2.0", 
+  "tags": [
+    {
+      "description": "", 
+      "externalDocs": {
+        "description": "Full documentation", 
+        "url": "https://dev.fitbit.com/build/reference/web-api/activity/"
+      }, 
+      "name": "Activity"
+    }, 
+    {
+      "description": "authentication and authorization using OAuth 2", 
+      "externalDocs": {
+        "description": "Full documentation", 
+        "url": "https://dev.fitbit.com/build/reference/web-api/oauth2/"
+      }, 
+      "name": "Auth"
+    }, 
+    {
+      "description": "", 
+      "externalDocs": {
+        "description": "Full documentation", 
+        "url": "https://dev.fitbit.com/build/reference/web-api/body/"
+      }, 
+      "name": "Body and Weight"
+    }, 
+    {
+      "description": "", 
+      "externalDocs": {
+        "description": "Full documentation", 
+        "url": "https://dev.fitbit.com/build/reference/web-api/devices/"
+      }, 
+      "name": "Devices"
+    }, 
+    {
+      "description": "", 
+      "externalDocs": {
+        "description": "Full documentation", 
+        "url": "https://dev.fitbit.com/build/reference/web-api/food-logging/"
+      }, 
+      "name": "Food Logging"
+    }, 
+    {
+      "description": "", 
+      "externalDocs": {
+        "description": "Full documentation", 
+        "url": "https://dev.fitbit.com/build/reference/web-api/friends/"
+      }, 
+      "name": "Friends"
+    }, 
+    {
+      "description": "", 
+      "externalDocs": {
+        "description": "Full documentation", 
+        "url": "https://dev.fitbit.com/build/reference/web-api/heart-rate/"
+      }, 
+      "name": "Heart Rate"
+    }, 
+    {
+      "description": "", 
+      "externalDocs": {
+        "description": "Full documentation", 
+        "url": "https://dev.fitbit.com/build/reference/web-api/sleep/"
+      }, 
+      "name": "Sleep"
+    }, 
+    {
+      "description": "", 
+      "externalDocs": {
+        "description": "Full documentation", 
+        "url": "https://dev.fitbit.com/build/reference/web-api/subscriptions/"
+      }, 
+      "name": "Subscriptions"
+    }, 
+    {
+      "description": "", 
+      "externalDocs": {
+        "description": "Full documentation", 
+        "url": "https://dev.fitbit.com/build/reference/web-api/user/"
+      }, 
+      "name": "User"
+    }
+  ]
+}

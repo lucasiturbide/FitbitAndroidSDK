@@ -1,0 +1,15 @@
+{
+  "library": "retrofit2",
+  "groupdId": "com.mindbodyonline.fitbitintegration",
+  "developerOrganization": "MINDBODY",
+  "artifactName": "Fitbit API",
+  "artifactId": "fitbitintegration",
+  "apiPackage": "com.mindbodyonline.fitbitintegration.api",
+  "modelPackage": "com.mindbodyonline.fitbitintegration.model",
+  "invokerPackage": "com.mindbodyonline.fitbitintegration.service",
+  "useRxJava2": false,
+  "hideGenerationTimestamp": true,
+  "serializableModel": true,
+  "dateLibrary": "joda",
+  "supportJava6": true
+}

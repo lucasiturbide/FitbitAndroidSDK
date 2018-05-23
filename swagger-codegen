@@ -1,0 +1,4 @@
+#!/bin/bash
+BIN_PATH="$( cd "$(dirname "$0")" ; pwd -P )"
+
+exec java  -jar ./swagger-codegen-cli.jar "$@"
