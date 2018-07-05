@@ -15,7 +15,7 @@ class FitbitViewModel: ViewModel() {
     }
 
     fun requestAccess(){
-        val uriBuilder = Uri.Builder()
+        val uriBuilder = Uri.parse(AUTHORIZATION_CODE_GRANT_URL).buildUpon()
                 .appendQueryParameter(QUERY_PARAM_RESPONSE_TYPE, TYPE_CODE)
                 .appendQueryParameter(QUERY_PARAM_CLIENT_ID, "")
     }

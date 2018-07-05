@@ -1,10 +1,8 @@
 
 package com.mindbodyonline.fitbitintegration.service.models;
 
-import javax.annotation.Generated;
 import com.google.gson.annotations.Expose;
 
-@Generated("net.hexar.json2pojo")
 @SuppressWarnings("unused")
 public class Pagination {
 

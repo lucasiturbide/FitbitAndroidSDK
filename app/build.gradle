@@ -34,14 +34,14 @@ dependencies {
     implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation 'com.android.support:appcompat-v7:27.1.1'
     implementation 'com.android.support:customtabs:27.1.1'
-    implementation 'com.android.support.constraint:constraint-layout:1.1.0'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.2'
     implementation 'com.squareup.okhttp3:okhttp:3.10.0'
     implementation 'com.squareup.okhttp3:logging-interceptor:3.10.0'
     implementation "com.squareup.retrofit2:retrofit:${retrofitVersion}"
     implementation "com.squareup.retrofit2:converter-gson:${retrofitVersion}"
 //    implementation "com.squareup.retrofit2:converter-scalars:${retrofitVersion}"
 //    implementation "io.gsonfire:gson-fire:${jsonFireVersion}"
-    implementation "com.google.code.gson:gson:2.8.2"
+    implementation "com.google.code.gson:gson:2.8.5"
 //    implementation ("org.apache.oltu.oauth2:org.apache.oltu.oauth2.client:${oltuVersion}"){
 //        exclude group: 'org.apache.oltu.oauth2', module: 'org.apache.oltu.oauth2.common'
 //    }
