@@ -1,6 +1,5 @@
 package com.mindbodyonline.fitbitintegration.service.api.endpoint
 
-import android.util.Base64
 import com.mindbodyonline.fitbitintegration.service.models.auth.OAuthAccessToken
 
 enum class Environment {
@@ -28,8 +27,8 @@ abstract class AuthEndpoint {
     abstract fun oauthSecret(env: Environment) : String
 
     open fun basicHeader(env: Environment): Pair<String, String> {
-        val basicToken = Base64.encode("${oauthClientId(env)}:${oauthSecret(env)}".toByteArray(), Base64.NO_WRAP)
-        return OAUTH_HEADER_KEY to "$OAUTH_BASIC $basicToken"
+//        val basicToken = Base64.encode("${oauthClientId(env)}:${oauthSecret(env)}".toByteArray(), Base64.NO_WRAP)
+        return OAUTH_HEADER_KEY to "$OAUTH_BASIC ${oauthClientId(env)}"
     }
 
     open fun auth(env: Environment) : String {

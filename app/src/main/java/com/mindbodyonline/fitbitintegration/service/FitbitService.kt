@@ -73,4 +73,8 @@ class FitbitService(sharedPreferences: SharedPreferences){
     fun getUserService(): UserService{
         return service.create(UserService::class.java)
     }
+
+    fun getTokenService(): TokenService{
+        return service.create(TokenService::class.java)
+    }
 }

@@ -1,8 +1,10 @@
 apply plugin: 'com.android.application'
-
 apply plugin: 'kotlin-android'
-
 apply plugin: 'kotlin-android-extensions'
+
+androidExtensions {
+    experimental = true
+}
 
 android {
     compileSdkVersion 27
@@ -24,7 +26,6 @@ android {
 
 ext{
     retrofitVersion = "2.4.0"
-    oltuVersion = "1.0.1"
     jsonFireVersion = "1.8.0"
     jodatimeVersion = "2.9.9"
 }
@@ -39,14 +40,7 @@ dependencies {
     implementation 'com.squareup.okhttp3:logging-interceptor:3.10.0'
     implementation "com.squareup.retrofit2:retrofit:${retrofitVersion}"
     implementation "com.squareup.retrofit2:converter-gson:${retrofitVersion}"
-//    implementation "com.squareup.retrofit2:converter-scalars:${retrofitVersion}"
-//    implementation "io.gsonfire:gson-fire:${jsonFireVersion}"
     implementation "com.google.code.gson:gson:2.8.5"
-//    implementation ("org.apache.oltu.oauth2:org.apache.oltu.oauth2.client:${oltuVersion}"){
-//        exclude group: 'org.apache.oltu.oauth2', module: 'org.apache.oltu.oauth2.common'
-//    }
-//    implementation "joda-time:joda-time:${jodatimeVersion}"
-
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
