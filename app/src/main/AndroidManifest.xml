@@ -16,6 +16,9 @@
             android:name="com.mindbodyonline.fitbitintegration.CLIENT_ID"
             android:value="@string/fitbit_client_id"/>
         <meta-data
+            android:name="com.mindbodyonline.fitbitintegration.CLIENT_SECRET"
+            android:value="@string/fitbit_client_secret"/>
+        <meta-data
             android:name="com.mindbodyonline.fitbitintegration.REDIRECT_URL"
             android:value="https://authorization-done"/>
         <activity android:name=".FitbitLoginActivity">
@@ -25,7 +28,6 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".authentication.ui.FitbitLoginActivity" />
     </application>
 
 </manifest>

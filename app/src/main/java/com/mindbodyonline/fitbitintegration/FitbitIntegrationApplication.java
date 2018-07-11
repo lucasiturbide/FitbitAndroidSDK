@@ -8,12 +8,11 @@ import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 
-import com.mindbodyonline.fitbitintegration.authentication.AuthenticationConfiguration;
-import com.mindbodyonline.fitbitintegration.authentication.AuthenticationConfigurationBuilder;
-import com.mindbodyonline.fitbitintegration.authentication.AuthenticationManager;
-import com.mindbodyonline.fitbitintegration.authentication.ClientCredentials;
-import com.mindbodyonline.fitbitintegration.authentication.Scope;
-import com.mindbodyonline.fitbitintegration.service.api.endpoint.Environment;
+import com.mindbodyonline.fitbitsdk.authentication.AuthenticationConfiguration;
+import com.mindbodyonline.fitbitsdk.authentication.AuthenticationConfigurationBuilder;
+import com.mindbodyonline.fitbitsdk.authentication.AuthenticationManager;
+import com.mindbodyonline.fitbitsdk.authentication.ClientCredentials;
+import com.mindbodyonline.fitbitsdk.authentication.Scope;
 
 import java.util.concurrent.TimeUnit;
 
@@ -28,14 +27,13 @@ public class FitbitIntegrationApplication extends Application {
             // Load clientId and redirectUrl from application manifest
             String clientId = bundle.getString("com.mindbodyonline.fitbitintegration.CLIENT_ID");
             String redirectUrl = bundle.getString("com.mindbodyonline.fitbitintegration.REDIRECT_URL");
+            String clientSecret = bundle.getString("com.mindbodyonline.fitbitintegration.CLIENT_SECRET");
 
-            FitbitAuthEndpoint authEndpoint = new FitbitAuthEndpoint();
-
-            ClientCredentials CLIENT_CREDENTIALS = new ClientCredentials(clientId, authEndpoint.oauthClientId(Environment.PRODUCTION), redirectUrl);
+            ClientCredentials clientCredentials = new ClientCredentials(clientId, clientSecret, redirectUrl);
 
             return new AuthenticationConfigurationBuilder()
 
-                    .setClientCredentials(CLIENT_CREDENTIALS)
+                    .setClientCredentials(clientCredentials)
                     .setBeforeLoginActivity(new Intent(context, mainActivityClass))
                     .setTokenExpiresIn(TimeUnit.DAYS.toMillis(1))
                     .addRequiredScopes(Scope.profile)

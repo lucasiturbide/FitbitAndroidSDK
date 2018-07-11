@@ -2,16 +2,18 @@ package com.mindbodyonline.fitbitintegration
 
 import android.content.Context
 import android.content.DialogInterface
+import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AlertDialog
 import android.support.v7.app.AppCompatActivity
 import android.text.TextUtils
 import android.util.Log
-import com.mindbodyonline.fitbitintegration.authentication.AuthenticationHandler
-import com.mindbodyonline.fitbitintegration.authentication.AuthenticationManager
-import com.mindbodyonline.fitbitintegration.authentication.AuthenticationResult
-import com.mindbodyonline.fitbitintegration.service.FitbitService
-import com.mindbodyonline.fitbitintegration.service.models.UserProfile
+import android.view.View
+import com.mindbodyonline.fitbitsdk.authentication.AuthenticationHandler
+import com.mindbodyonline.fitbitsdk.authentication.AuthenticationManager
+import com.mindbodyonline.fitbitsdk.authentication.AuthenticationResult
+import com.mindbodyonline.fitbitsdk.service.FitbitService
+import com.mindbodyonline.fitbitsdk.service.models.UserProfile
 import kotlinx.android.synthetic.main.activity_fitbit_login.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -24,17 +26,21 @@ class FitbitLoginActivity : AppCompatActivity(), AuthenticationHandler {
         setContentView(R.layout.activity_fitbit_login)
     }
 
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (!AuthenticationManager.onActivityResult(requestCode, resultCode, data, this)) {
+            // Handle other activity results, if needed
+        }
+    }
     override fun onResume() {
         super.onResume()
-//        val storage = SharedPreferenceTokenStorage(sharedPreferences)
-//        storage.token = null
-//        storage.token = OAuthAccessToken(ACCESS_TOKEN,
-//                TimeUnit.DAYS.toSeconds(4).toInt(),
-//                "",
-//                arrayListOf(),
-//                "",
-//                "")
-        button.setOnClickListener { _ -> AuthenticationManager.login(this) }
+        if (AuthenticationManager.isLoggedIn()) {
+            onLoggedIn()
+            button.visibility = View.GONE
+        }else{
+            button.visibility = View.VISIBLE
+            button.setOnClickListener { _ -> AuthenticationManager.login(this) }
+        }
     }
 
     override fun onAuthFinished(authenticationResult: AuthenticationResult?) {
@@ -49,7 +55,7 @@ class FitbitLoginActivity : AppCompatActivity(), AuthenticationHandler {
 
     fun onLoggedIn(){
         val sharedPreferences = getSharedPreferences("Fitbit", Context.MODE_PRIVATE)
-        val fService = FitbitService(sharedPreferences)
+        val fService = FitbitService(sharedPreferences, AuthenticationManager.getAuthenticationConfiguration().clientCredentials)
         fService.getUserService().profile().enqueue(object : Callback<UserProfile> {
             override fun onResponse(call: Call<UserProfile>?, response: Response<UserProfile>?) {
                 Log.d("Service", "Response: " + response?.body()?.user?.dateOfBirth)

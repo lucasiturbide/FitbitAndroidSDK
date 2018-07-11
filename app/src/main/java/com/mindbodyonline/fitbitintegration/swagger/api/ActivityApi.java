@@ -1,9 +1,9 @@
 package com.mindbodyonline.fitbitintegration.swagger.api;
 
-import com.mindbodyonline.fitbitintegration.service.models.ActivityCategory;
-import com.mindbodyonline.fitbitintegration.service.models.ActivityLog;
-import com.mindbodyonline.fitbitintegration.service.models.ActivityType;
-import com.mindbodyonline.fitbitintegration.service.models.LifetimeActivities;
+import com.mindbodyonline.fitbitsdk.service.models.ActivityCategory;
+import com.mindbodyonline.fitbitsdk.service.models.ActivityLog;
+import com.mindbodyonline.fitbitsdk.service.models.ActivityType;
+import com.mindbodyonline.fitbitsdk.service.models.LifetimeActivities;
 
 import retrofit2.Call;
 import retrofit2.http.DELETE;
